@@ -3,6 +3,7 @@ import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 
+export const runtime = "edge";
 export default function ProjectsPage() {
   return (
     <div className="min-h-screen flex flex-col">

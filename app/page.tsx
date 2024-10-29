@@ -2,6 +2,8 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer"
 import TechList from "@/components/TechList";
 
+export const runtime = "edge";
+
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">

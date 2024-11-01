@@ -13,11 +13,15 @@ export function AboutContent() {
 
       <TechList>
         <ul>
+          <li>C++ for competitive programming / PlatformIO for embedded systems</li>
           <li>Java / Springboot / Mockito</li>
           <li>Docker / Kubernetes / Redhat OpenShift</li>
           <li>GitLab / Github including CI/CD pipelines</li>
-          <li>Python / Django / PyQt</li>
-          <li>C++ for competitive programming / PlatformIO for embedded systems</li>
+          <li>Godot with GDScript for game development</li>
+          <li>Python / Django / PyQt </li>
+          <li>Figma for prototyping</li>
+          <li>NextJS / React / Typescript /TailwindCSS / ShadcnUI / Supabase / Clerk authentication for frontend web development</li>
+          <li>Expo / React Native for mobile development</li>
         </ul>
       </TechList>
 

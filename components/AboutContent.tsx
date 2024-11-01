@@ -20,7 +20,7 @@ export function AboutContent() {
           <li>Godot with GDScript for game development</li>
           <li>Python / Django / PyQt </li>
           <li>Figma for prototyping</li>
-          <li>NextJS / React / Typescript /TailwindCSS / ShadcnUI / Supabase / Clerk authentication for frontend web development</li>
+          <li>NextJS / React / Typescript / TailwindCSS / ShadcnUI / Supabase / Clerk authentication for frontend web development</li>
           <li>Expo / React Native for mobile development</li>
         </ul>
       </TechList>

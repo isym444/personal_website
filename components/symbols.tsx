@@ -628,37 +628,79 @@ function Books() {
 }
 
 function Omega() {
-  const ticks = Array.from({ length: 36 }, (_, i) => {
-    const a = (i * 10 * Math.PI) / 180
-    const major = i % 3 === 0
-    const r1 = 19.5
-    const r2 = major ? 16.5 : 17.8
-    return <path key={i} d={`M${(40 + Math.sin(a) * r1).toFixed(1)} ${(40 - Math.cos(a) * r1).toFixed(1)}L${(40 + Math.sin(a) * r2).toFixed(1)} ${(40 - Math.cos(a) * r2).toFixed(1)}`} stroke="#fff" strokeWidth={major ? 1.4 : 0.8} strokeOpacity="0.9" />
+  // Speedmaster Professional: steel H-link bracelet, black tachymeter bezel, baton dial, three subdials,
+  // crown and two pushers on the right.
+  const cx = 40
+  const cy = 40
+  const pt = (deg: number, r: number) => [cx + Math.sin((deg * Math.PI) / 180) * r, cy - Math.cos((deg * Math.PI) / 180) * r] as const
+  const ticks = Array.from({ length: 60 }, (_, i) => {
+    const major = i % 5 === 0
+    const [x1, y1] = pt(i * 6, 17.6)
+    const [x2, y2] = pt(i * 6, major ? 15.6 : 16.6)
+    return <path key={i} d={`M${x1.toFixed(2)} ${y1.toFixed(2)}L${x2.toFixed(2)} ${y2.toFixed(2)}`} stroke="#fff" strokeWidth={major ? 0.9 : 0.5} opacity="0.9" />
   })
+  const batons = Array.from({ length: 12 }, (_, i) => {
+    const [x1, y1] = pt(i * 30, 13.2)
+    const [x2, y2] = pt(i * 30, 10.6)
+    return <path key={i} d={`M${x1.toFixed(2)} ${y1.toFixed(2)}L${x2.toFixed(2)} ${y2.toFixed(2)}`} stroke="#f4f7f2" strokeWidth="1.5" strokeLinecap="butt" />
+  })
+  const hand = (deg: number, len: number, tail: number, w: number, colour = "#f4f7f2") => {
+    const [x, y] = pt(deg, len)
+    const [tx, ty] = pt(deg + 180, tail)
+    return <path d={`M${tx.toFixed(2)} ${ty.toFixed(2)}L${x.toFixed(2)} ${y.toFixed(2)}`} stroke={colour} strokeWidth={w} strokeLinecap="round" />
+  }
+  const sub = (x: number, y: number, deg: number) => {
+    const sx = x + Math.sin((deg * Math.PI) / 180) * 3
+    const sy = y - Math.cos((deg * Math.PI) / 180) * 3
+    return (
+      <g key={`${x}${y}`}>
+        <circle cx={x} cy={y} r="4.3" fill="#0a0c10" stroke="#cfd6dc" strokeWidth="0.8" />
+        {[0, 90, 180, 270].map((a) => (
+          <path key={a} d={`M${(x + Math.sin((a * Math.PI) / 180) * 3.9).toFixed(2)} ${(y - Math.cos((a * Math.PI) / 180) * 3.9).toFixed(2)}L${(x + Math.sin((a * Math.PI) / 180) * 3.1).toFixed(2)} ${(y - Math.cos((a * Math.PI) / 180) * 3.1).toFixed(2)}`} stroke="#fff" strokeWidth="0.5" />
+        ))}
+        <path d={`M${x} ${y}L${sx.toFixed(2)} ${sy.toFixed(2)}`} stroke="#f4f7f2" strokeWidth="0.7" strokeLinecap="round" />
+        <circle cx={x} cy={y} r="0.6" fill="#f4f7f2" />
+      </g>
+    )
+  }
+  const link = (y: number, h = 4.4) => (
+    <g key={y}>
+      <rect x="31.5" y={y} width="4.6" height={h} rx="0.8" fill="#9aa4ae" stroke="#e6fff0" strokeWidth="0.6" />
+      <rect x="35.6" y={y} width="8.8" height={h} rx="0.8" fill="#dde3e8" stroke="#ffffff" strokeWidth="0.6" />
+      <rect x="43.9" y={y} width="4.6" height={h} rx="0.8" fill="#9aa4ae" stroke="#e6fff0" strokeWidth="0.6" />
+    </g>
+  )
   return (
     <>
-      <rect x="30" y="2" width="20" height="19" rx="3" fill="#10161c" stroke="#9aa4ae" strokeWidth="1.8" />
-      <rect x="30" y="59" width="20" height="19" rx="3" fill="#10161c" stroke="#9aa4ae" strokeWidth="1.8" />
-      <rect x="61" y="37" width="6" height="6" rx="1.2" fill="#9aa4ae" />
-      <rect x="58" y="22" width="5" height="4" rx="1" fill="#9aa4ae" transform="rotate(30 60 24)" />
-      <rect x="58" y="54" width="5" height="4" rx="1" fill="#9aa4ae" transform="rotate(-30 60 56)" />
-      <circle cx="40" cy="40" r="23" fill="#0a0d12" stroke="#d6dde3" strokeWidth="2.6" />
-      <circle cx="40" cy="40" r="20.5" fill="none" stroke="#6b7480" strokeWidth="1" />
+      {/* bracelet, top and bottom */}
+      {[0, 5, 10, 15].map((k) => link(-0.5 + k))}
+      {[0, 5, 10, 15].map((k) => link(60.5 + k))}
+      <path d="M31 -1V22M49 -1V22M31 58V81M49 58V81" stroke="#e6fff0" strokeWidth="1.2" />
+      {/* lugs */}
+      {[[27.5, 24, 30.6, 17.2], [52.5, 24, 49.4, 17.2], [27.5, 56, 30.6, 62.8], [52.5, 56, 49.4, 62.8]].map(([x1, y1, x2, y2], i) => (
+        <path key={i} d={`M${x1} ${y1}L${x2} ${y2}`} stroke="#c4ccd2" strokeWidth="3.4" strokeLinecap="round" />
+      ))}
+      {/* crown and pushers */}
+      <rect x="59.6" y="37.8" width="5" height="4.4" rx="1" fill="#c4ccd2" stroke="#fff" strokeWidth="0.8" />
+      <path d="M61 38V42M62.6 38V42" stroke="#6b7480" strokeWidth="0.6" />
+      <rect x="57.4" y="28" width="6.4" height="3.6" rx="1" fill="#c4ccd2" stroke="#fff" strokeWidth="0.8" transform="rotate(-24 60 30)" />
+      <rect x="57.4" y="48.4" width="6.4" height="3.6" rx="1" fill="#c4ccd2" stroke="#fff" strokeWidth="0.8" transform="rotate(24 60 50)" />
+      {/* case and bezel */}
+      <circle cx={cx} cy={cy} r="20.4" fill="#b4bcc3" stroke="#e6fff0" strokeWidth="1.6" />
+      <circle cx={cx} cy={cy} r="19" fill="none" stroke="#6b7480" strokeWidth="0.6" />
+      <circle cx={cx} cy={cy} r="18.4" fill="#08090c" stroke="#f1f4f6" strokeWidth="0.8" />
       {ticks}
-      <circle cx="40" cy="40" r="15" fill="#06080b" stroke="#6b7480" strokeWidth="0.8" />
-      {[[31, 40], [49, 40], [40, 49]].map(([x, y], i) => (
-        <g key={i}>
-          <circle cx={x} cy={y} r="4.6" fill="#0a0d12" stroke="#9aa4ae" strokeWidth="1" />
-          <path d={`M${x} ${y}L${x + (i === 0 ? 2 : i === 1 ? -1.5 : 0)} ${y - 3.4}`} stroke="#fff" strokeWidth="0.9" strokeLinecap="round" />
-        </g>
-      ))}
-      {[[40, 27], [27, 40], [53, 40], [40, 53]].map(([x, y], i) => (
-        <rect key={i} x={x - 0.8} y={y - 0.8} width="1.6" height="1.6" fill="#ffcf4a" />
-      ))}
-      <path d="M40 40L40 27" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" />
-      <path d="M40 40L51 34" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" />
-      <path d="M40 40L34 48" stroke="#ff3b4e" strokeWidth="1" strokeLinecap="round" />
-      <circle cx="40" cy="40" r="1.6" fill="#fff" />
+      <circle cx={cx} cy={cy} r="14.6" fill="#050608" stroke="#cfd6dc" strokeWidth="0.8" />
+      {batons}
+      <text x={cx} y="34.2" textAnchor="middle" fontSize="3" fill="#f4f7f2" fontFamily="serif">Ω</text>
+      {sub(48.2, 40, 36)}
+      {sub(31.8, 40, 300)}
+      {sub(40, 48.2, 160)}
+      {/* hands: hour, minute, chronograph seconds */}
+      {hand(305, 7.4, 1.6, 1.9)}
+      {hand(52, 11.6, 2, 1.5)}
+      {hand(0, 12.4, 3.2, 0.6)}
+      <circle cx={cx} cy={cy} r="1.5" fill="#f4f7f2" stroke="#14181e" strokeWidth="0.5" />
     </>
   )
 }

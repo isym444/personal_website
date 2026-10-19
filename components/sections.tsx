@@ -11,7 +11,7 @@ export function Section({ id, kanji, title, children }: { id: string; kanji: str
     <section id={id} className="relative z-10 mx-auto max-w-6xl px-5 py-16 sm:px-10 sm:py-24">
       <Reveal as="header" className="mb-10">
         <h2 className="font-pixel text-3xl sm:text-4xl">
-          <span className="text-magenta">//</span> <span className="neon">{kanji}</span> <span className="text-ink">{title}</span>
+          <span className="text-magenta">{"//"}</span> <span className="neon">{kanji}</span> <span className="text-ink">{title}</span>
         </h2>
       </Reveal>
       {children}

@@ -28,16 +28,16 @@ export default function Home() {
         <Section id="experience" kanji="経歴" title="Experience" symbols={["steth", "glasgow", "brain", "kit", "omega"]}>
           <Experience />
         </Section>
-        <Section id="highlights" kanji="実績" title="Highlights" symbols={["omamori", "books", "partyhat", "scimitar", "coins"]}>
+        <Section id="highlights" kanji="実績" title="Highlights" symbols={["omamori", "books", "gown", "partyhat", "punts", "scimitar", "mathbridge", "coins"]}>
           <Highlights />
         </Section>
-        <Section id="projects" kanji="作品" title="Projects" symbols={["macos", "android", "quest", "g1"]}>
+        <Section id="projects" kanji="作品" title="Projects" symbols={["macos", "surf", "android", "southbank", "quest", "xlb", "g1", "hotpot", "camera", "tartiflette", "baguette"]}>
           <Projects />
         </Section>
-        <Section id="journey" kanji="旅" title="Journey" symbols={["kings", "dazaifu", "umegae", "taipei", "hk", "xlb", "hotpot", "camera"]}>
+        <Section id="journey" kanji="旅" title="Journey" symbols={["kings", "dazaifu", "umegae", "casamusica", "taipei", "saobento", "hk", "lello"]}>
           <Journey />
         </Section>
-        <Section id="music" kanji="音楽" title="Music" symbols={["rcm", "hall"]}>
+        <Section id="music" kanji="音楽" title="Music" symbols={["rcm", "steinway", "hall", "yamaha", "berlinphil"]}>
           <Music />
         </Section>
         <Section id="stats" kanji="統計" title="Live stats" symbols={[

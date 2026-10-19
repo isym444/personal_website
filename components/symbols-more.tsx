@@ -708,6 +708,258 @@ function SegmentTree() {
   )
 }
 
+/* ------------------------------------------- Porto, France, Cambridge, music */
+
+function Tartiflette() {
+  return (
+    <>
+      <g fill="none" stroke="#fff3d6" strokeOpacity="0.85" strokeWidth="2" strokeLinecap="round" className="steam">
+        <path d="M28 26c-4-4 4-6 0-11M40 24c-4-4 4-6 0-11M52 26c-4-4 4-6 0-11" />
+      </g>
+      <path d="M7 6" stroke="none" />
+      <path d="M2 42Q-1 42 1 46Q3 49 8 47M78 42Q81 42 79 46Q77 49 72 47" fill="none" stroke="#e6fff0" strokeWidth="2.4" strokeLinecap="round" />
+      <path d="M6 42H74Q72 58 64 60H16Q8 58 6 42Z" fill="#e9eef2" fillOpacity="0.14" stroke="#e6fff0" {...L} />
+      <ellipse cx="40" cy="42" rx="35" ry="11" fill="#e9a23a" stroke="#ffe3a8" strokeWidth="2" />
+      <ellipse cx="40" cy="42" rx="31" ry="8" fill="none" stroke="#fff3c4" strokeOpacity="0.5" strokeWidth="1.2" strokeDasharray="3 3" />
+      <path d="M12 40C18 34 26 36 32 40C40 34 50 36 58 40C64 36 68 38 70 41" fill="none" stroke="#fff3c4" strokeWidth="2.4" strokeLinecap="round" />
+      {[[22, 42], [36, 44], [50, 42], [60, 40], [28, 38]].map(([x, y], i) => (
+        <ellipse key={i} cx={x} cy={y} rx="5.2" ry="2.6" fill="#b3601a" fillOpacity="0.8" />
+      ))}
+      {[[16, 41], [44, 38], [54, 45], [31, 46]].map(([x, y], i) => (
+        <rect key={i} x={x} y={y} width="4.4" height="2.4" rx="1" fill="#ff9ab0" stroke="#fff" strokeWidth="0.6" transform={`rotate(${i * 25} ${x} ${y})`} />
+      ))}
+      {[[26, 36], [46, 42], [14, 38]].map(([x, y], i) => (
+        <circle key={i} cx={x} cy={y} r="1.6" fill="#fff" className="twinkle" style={{ animationDelay: `${i * 0.5}s` }} />
+      ))}
+      <path d="M6 44H74" stroke="#e6fff0" strokeOpacity="0.35" strokeWidth="1" />
+    </>
+  )
+}
+
+function Baguette() {
+  const loaf = (rot: number, tx: number, ty: number, w: number) => (
+    <g transform={`translate(${tx} ${ty}) rotate(${rot})`}>
+      <rect x={-w / 2} y="-8" width={w} height="16" rx="8" fill="#c98a2b" stroke="#ffd08a" strokeWidth="2" />
+      {[-0.32, -0.16, 0, 0.16, 0.32].map((k, i) => (
+        <path key={i} d={`M${w * k - 4} 4L${w * k + 3} -4`} stroke="#f6dca0" strokeWidth="3" strokeLinecap="round" />
+      ))}
+      {[[-0.4, 3], [0.1, -5], [0.38, 4], [-0.15, 5]].map(([k, y], i) => (
+        <circle key={i} cx={w * k} cy={y} r="0.9" fill="#fff3d6" opacity="0.8" />
+      ))}
+    </g>
+  )
+  return (
+    <>
+      {loaf(-28, 36, 46, 58)}
+      {loaf(-30, 48, 30, 54)}
+    </>
+  )
+}
+
+function CasaMusica() {
+  return (
+    <>
+      <path d="M6 58L18 32L52 20L74 40L72 58L30 64Z" fill="#e6fff0" fillOpacity="0.1" stroke="#e6fff0" {...L} />
+      <path d="M18 32L30 64M52 20L30 64M52 20L72 58M18 32L52 20M74 40L30 64" fill="none" stroke="#e6fff0" strokeWidth="1.6" strokeLinejoin="round" />
+      <path d="M52 20L74 40L72 58Z" fill="#19e3ff" fillOpacity="0.25" stroke="#19e3ff" strokeWidth="1.6" strokeLinejoin="round" />
+      <path d="M56 30L68 42M58 24L71 38M60 44L70 52" stroke="#19e3ff" strokeOpacity="0.7" strokeWidth="1" />
+      <path d="M6 58L30 64L72 58" fill="none" stroke="#e6fff0" strokeWidth="1.8" strokeLinecap="round" />
+      <path d="M4 68H76M12 63L8 68M26 66L22 68" stroke="#e6fff0" strokeOpacity="0.6" strokeWidth="1.6" strokeLinecap="round" />
+      <text x="26" y="42" textAnchor="middle" fontSize="8" fill="#ffcf4a">♪</text>
+    </>
+  )
+}
+
+function SaoBento() {
+  const tile = (x: number, y: number, i: number) => (
+    <rect key={`${x}-${y}`} x={x} y={y} width="5" height="5" fill={(i % 2 === 0) ? "#4d8dff" : "#e6f0ff"} fillOpacity={(i % 2 === 0) ? 0.85 : 0.9} stroke="#1a3a8a" strokeWidth="0.5" />
+  )
+  return (
+    <>
+      <path d="M8 24L14 14H66L72 24Z" fill="#2a3a4a" stroke="#9fb4c8" strokeWidth="1.8" strokeLinejoin="round" />
+      <path d="M26 14L30 8H50L54 14" fill="#2a3a4a" stroke="#9fb4c8" strokeWidth="1.6" strokeLinejoin="round" />
+      <rect x="8" y="24" width="64" height="44" fill="#1a2430" stroke="#9fb4c8" strokeWidth="1.8" />
+      <circle cx="40" cy="18" r="3.4" fill="#e6fff0" stroke="#ffcf4a" strokeWidth="1.2" />
+      <path d="M40 18V16M40 18L41.6 19" stroke="#14181e" strokeWidth="0.9" strokeLinecap="round" />
+      <path d="M28 68V46A12 12 0 0 1 52 46V68Z" fill="#0a1018" stroke="#9fb4c8" strokeWidth="1.8" />
+      {Array.from({ length: 3 }, (_, r) => Array.from({ length: 6 }, (_, c) => tile(14 + c * 5.2 > 28 ? 14 + c * 5.2 + 30 : 14 + c * 5.2, 28 + r * 5, r + c)))}
+      {Array.from({ length: 3 }, (_, r) => Array.from({ length: 4 }, (_, c) => tile(31 + c * 5.2, 26 + r * 5, r + c + 1)))}
+      <path d="M6 68H74" stroke="#9fb4c8" strokeWidth="2" strokeLinecap="round" />
+    </>
+  )
+}
+
+function Lello() {
+  const spines = ["#ff3b4e", "#19e3ff", "#ffcf4a", "#3dff8b", "#ff3da6", "#d98cff"]
+  return (
+    <>
+      <rect x="6" y="6" width="68" height="64" fill="#1a0d08" stroke="#ffb454" strokeWidth="2" />
+      <rect x="22" y="8" width="36" height="10" fill="#0e1a2a" stroke="#ffb454" strokeWidth="1.4" />
+      {[0, 1, 2, 3, 4, 5].map((i) => (
+        <rect key={i} x={23 + i * 5.7} y="9" width="4.6" height="8" fill={spines[i]} fillOpacity="0.55" />
+      ))}
+      {[0, 1, 2, 3].map((r) => (
+        <g key={r}>
+          {Array.from({ length: 4 }, (_, i) => (
+            <rect key={`l${i}`} x={8 + i * 3.6} y={22 + r * 10} width="2.8" height="8" fill={spines[(i + r) % 6]} opacity="0.85" />
+          ))}
+          {Array.from({ length: 4 }, (_, i) => (
+            <rect key={`r${i}`} x={59 + i * 3.6} y={22 + r * 10} width="2.8" height="8" fill={spines[(i + r + 2) % 6]} opacity="0.85" />
+          ))}
+        </g>
+      ))}
+      <path d="M26 70C22 58 28 48 36 46H44C52 48 58 58 54 70Z" fill="#8a1226" stroke="#ff6b82" strokeWidth="1.8" strokeLinejoin="round" />
+      <path d="M40 70V46M34 70C32 60 34 52 38 48M46 70C48 60 46 52 42 48" fill="none" stroke="#ff9ab0" strokeOpacity="0.7" strokeWidth="1.2" />
+      <path d="M26 56H54M28 62H52" stroke="#ff9ab0" strokeOpacity="0.5" strokeWidth="1" />
+      <path d="M34 46C34 36 30 32 28 30M46 46C46 36 50 32 52 30" fill="none" stroke="#ffb454" strokeWidth="2.4" strokeLinecap="round" />
+    </>
+  )
+}
+
+function Surfboard() {
+  return (
+    <>
+      <g transform="rotate(22 40 40)">
+        <path d="M40 2C56 16 58 52 40 72C22 52 24 16 40 2Z" fill="#19e3ff" fillOpacity="0.2" stroke="#19e3ff" {...L} />
+        <path d="M40 4V70" stroke="#e6fff0" strokeWidth="1.4" />
+        <path d="M30 32C36 36 44 36 50 32M29 42C36 46 44 46 51 42" fill="none" stroke="#ff3da6" strokeWidth="3" strokeLinecap="round" />
+        <path d="M40 64L34 72L40 70L46 72Z" fill="#ffcf4a" stroke="#ffe08a" strokeWidth="1.2" strokeLinejoin="round" />
+        <path d="M30 58L26 66L32 62ZM50 58L54 66L48 62Z" fill="#ffcf4a" fillOpacity="0.8" />
+      </g>
+      <path d="M4 72C10 69 14 75 20 72C26 69 30 75 36 72M44 74C50 71 54 77 60 74C66 71 70 77 76 74" fill="none" stroke="#19e3ff" strokeWidth="1.8" strokeLinecap="round" />
+    </>
+  )
+}
+
+function SouthbankSkate() {
+  return (
+    <>
+      <rect x="4" y="14" width="72" height="12" fill="#3a3f46" stroke="#9aa4ae" strokeWidth="1.8" />
+      {[14, 40, 66].map((x) => (
+        <rect key={x} x={x - 4} y="26" width="8" height="38" fill="#2a2f36" stroke="#9aa4ae" strokeWidth="1.6" />
+      ))}
+      <path d="M4 64H76" stroke="#9aa4ae" strokeWidth="2" strokeLinecap="round" />
+      <path d="M18 64Q30 64 34 48" fill="none" stroke="#9aa4ae" strokeWidth="1.8" strokeLinecap="round" />
+      <path d="M12 32Q18 26 22 34T30 30M10 44l6-6 4 8 6-8M46 32l8-4 2 8-6 2M48 46q6-6 10 0t6-2M56 54l4-6 5 6" fill="none" stroke="#ff3da6" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M44 56Q52 50 60 56" fill="none" stroke="#19e3ff" strokeWidth="2.4" strokeLinecap="round" />
+      <path d="M14 38H26M16 50H28" stroke="#ffcf4a" strokeWidth="2.4" strokeLinecap="round" />
+      <g transform="translate(52 52) rotate(-24)">
+        <path d="M-9 0Q-6 0 -5 2H5Q6 0 9 0" fill="none" stroke="#19e3ff" strokeWidth="2.6" strokeLinecap="round" />
+        <circle cx="-4" cy="5" r="2" fill="#ff3da6" />
+        <circle cx="4" cy="5" r="2" fill="#ff3da6" />
+      </g>
+    </>
+  )
+}
+
+function Punts() {
+  return (
+    <>
+      <path d="M8 14C8 30 12 44 10 58M14 12C14 28 18 40 16 52" fill="none" stroke="#3dff8b" strokeWidth="2" strokeLinecap="round" />
+      <path d="M10 20l-3 3M10 32l-3 3M10 44l-3 3M16 24l-3 3M16 36l-3 3" stroke="#3dff8b" strokeOpacity="0.8" strokeWidth="1.6" strokeLinecap="round" />
+      <path d="M62 10L40 66" stroke="#c8a46a" strokeWidth="2.4" strokeLinecap="round" />
+      <circle cx="58" cy="22" r="4" fill="#ffd9a0" stroke="#fff" strokeWidth="1" />
+      <path d="M53 20H63L58 16Z" fill="#c8a46a" stroke="#ffe3a8" strokeWidth="1" strokeLinejoin="round" />
+      <path d="M58 26V42M58 30L66 26M58 30L52 36M58 42L54 54M58 42L62 54" fill="none" stroke="#e6fff0" strokeWidth="2.4" strokeLinecap="round" />
+      <path d="M12 56L20 50H66L74 56L68 60H18Z" fill="#6b4a1e" stroke="#ffb454" {...L} />
+      <path d="M22 54H66" stroke="#ffd9a0" strokeOpacity="0.6" strokeWidth="1.2" />
+      <path d="M4 66C10 63 14 69 20 66C26 63 30 69 36 66C42 63 46 69 52 66C58 63 62 69 68 66C72 64 76 68 78 66" fill="none" stroke="#19e3ff" strokeWidth="1.8" strokeLinecap="round" />
+    </>
+  )
+}
+
+function MathBridge() {
+  const top = Array.from({ length: 9 }, (_, i) => [8 + i * 8, 40 - 12 * Math.sin((i / 8) * Math.PI)])
+  return (
+    <>
+      <path d="M4 52H76" stroke="#19e3ff" strokeWidth="1.6" />
+      <path d="M2 60C8 57 12 63 18 60C24 57 28 63 34 60C40 57 44 63 50 60C56 57 60 63 66 60C72 58 76 62 78 60" fill="none" stroke="#19e3ff" strokeWidth="1.8" strokeLinecap="round" />
+      <path d="M8 44H72" stroke="#c8a46a" strokeWidth="3.4" strokeLinecap="round" />
+      <path d={top.map(([x, y], i) => `${i ? "L" : "M"}${x} ${y}`).join("")} fill="none" stroke="#c8a46a" strokeWidth="2.6" strokeLinejoin="round" />
+      {top.map(([x, y], i) => (
+        <path key={i} d={`M${x} ${y}L${x} 44`} stroke="#c8a46a" strokeWidth="1.8" />
+      ))}
+      {top.slice(0, -1).map(([x, y], i) => (
+        <path key={i} d={`M${x} ${y}L${top[i + 1][0]} 44M${top[i + 1][0]} ${top[i + 1][1]}L${x} 44`} stroke="#ffd9a0" strokeOpacity="0.75" strokeWidth="1.2" />
+      ))}
+      <path d="M8 44V50M72 44V50" stroke="#c8a46a" strokeWidth="2" strokeLinecap="round" />
+      <rect x="0" y="20" width="6" height="40" fill="#3a2414" stroke="#e8a070" strokeWidth="1.4" />
+      <rect x="74" y="20" width="6" height="40" fill="#3a2414" stroke="#e8a070" strokeWidth="1.4" />
+    </>
+  )
+}
+
+function FormalGown() {
+  return (
+    <>
+      <path d="M40 4C40 8 34 8 34 13" fill="none" stroke="#e6fff0" strokeWidth="2" strokeLinecap="round" />
+      <path d="M12 22L40 12L68 22" fill="none" stroke="#e6fff0" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M26 20C32 16 48 16 54 20L60 30C66 40 70 56 72 72H8C10 56 14 40 20 30Z" fill="#12161c" stroke="#e6fff0" {...L} />
+      <path d="M26 20L40 44L54 20" fill="#f6f6f6" stroke="#fff" strokeWidth="1.6" strokeLinejoin="round" />
+      <path d="M36 28L40 31L44 28L44 34L40 31L36 34Z" fill="#14181e" stroke="#fff" strokeWidth="0.8" strokeLinejoin="round" />
+      <path d="M26 20L32 48L30 72M54 20L48 48L50 72" fill="none" stroke="#9aa4ae" strokeWidth="1.4" />
+      <path d="M20 30C14 46 12 58 10 70M60 30C66 46 68 58 70 70" fill="none" stroke="#9aa4ae" strokeOpacity="0.5" strokeWidth="1.2" />
+      <path d="M8 72H72" stroke="#e6fff0" strokeWidth="2" strokeLinecap="round" />
+    </>
+  )
+}
+
+function Steinway() {
+  return (
+    <>
+      <path d="M8 40L56 12L66 18L64 40Z" fill="#0a0d12" fillOpacity="0.85" stroke="#e6fff0" strokeWidth="2" strokeLinejoin="round" />
+      <path d="M30 40L50 14" stroke="#9aa4ae" strokeWidth="1.8" strokeLinecap="round" />
+      <path d="M6 40H64C74 40 76 46 74 50C72 53 66 52 60 52H6Z" fill="#0a0d12" stroke="#e6fff0" {...L} />
+      <rect x="6" y="44" width="16" height="5" fill="#f6f6f6" stroke="#e6fff0" strokeWidth="1" />
+      {[9, 12, 15, 18].map((x) => (
+        <rect key={x} x={x} y="44" width="1.6" height="3" fill="#14181e" />
+      ))}
+      <path d="M10 52V70M62 52V70M38 52V70" stroke="#e6fff0" strokeWidth="2.6" strokeLinecap="round" />
+      <path d="M22 52V62M26 52V62" stroke="#ffcf4a" strokeWidth="1.6" strokeLinecap="round" />
+      <circle cx="10" cy="71" r="1.8" fill="#ffcf4a" />
+      <circle cx="62" cy="71" r="1.8" fill="#ffcf4a" />
+      <circle cx="38" cy="71" r="1.8" fill="#ffcf4a" />
+      <text x="48" y="48" textAnchor="middle" fontSize="7" fontWeight="700" fill="#ffcf4a" fontFamily="var(--font-pixel), serif">D</text>
+    </>
+  )
+}
+
+function Yamaha() {
+  return (
+    <>
+      <path d="M10 38L50 24L60 28L58 38Z" fill="#0a0d12" fillOpacity="0.85" stroke="#19e3ff" strokeWidth="2" strokeLinejoin="round" />
+      <path d="M12 38H58C66 38 68 42 66 46C64 48 60 48 56 48H12Z" fill="#0a0d12" stroke="#19e3ff" {...L} />
+      <rect x="10" y="41" width="14" height="4.4" fill="#f6f6f6" stroke="#19e3ff" strokeWidth="1" />
+      {[12, 15, 18, 21].map((x) => (
+        <rect key={x} x={x} y="41" width="1.5" height="2.8" fill="#14181e" />
+      ))}
+      <path d="M16 48V66M56 48V66M36 48V66" stroke="#19e3ff" strokeWidth="2.4" strokeLinecap="round" />
+      <path d="M26 48V58M30 48V58" stroke="#e6fff0" strokeWidth="1.6" strokeLinecap="round" />
+      <path d="M30 36L36 26L42 36" fill="none" stroke="#9aa4ae" strokeWidth="1.2" strokeLinejoin="round" />
+      <circle cx="16" cy="67" r="1.8" fill="#e6fff0" />
+      <circle cx="56" cy="67" r="1.8" fill="#e6fff0" />
+      <circle cx="36" cy="67" r="1.8" fill="#e6fff0" />
+      <text x="62" y="21" fontSize="9" fill="#19e3ff">♪</text>
+    </>
+  )
+}
+
+function BerlinPhil() {
+  return (
+    <>
+      <path d="M6 58L14 42L24 44L38 20L54 30L60 24L74 40L74 58Z" fill="#ffcf4a" fillOpacity="0.2" stroke="#ffcf4a" {...L} />
+      <path d="M14 42L20 58M24 44L30 58M38 20L36 44M38 20L46 40M54 30L50 44M60 24L58 42M60 24L66 40M74 40L70 58" fill="none" stroke="#ffcf4a" strokeOpacity="0.8" strokeWidth="1.4" strokeLinejoin="round" />
+      <path d="M24 44H54L60 42" fill="none" stroke="#ffcf4a" strokeOpacity="0.8" strokeWidth="1.4" />
+      <rect x="6" y="58" width="68" height="10" fill="#1a1608" stroke="#e8c98a" strokeWidth="1.8" />
+      {[12, 22, 32, 42, 52, 62].map((x) => (
+        <rect key={x} x={x} y="60" width="6" height="6" fill="#ffcf4a" fillOpacity="0.4" stroke="#e8c98a" strokeWidth="0.9" />
+      ))}
+      <path d="M2 68H78" stroke="#e8c98a" strokeWidth="2" strokeLinecap="round" />
+      <text x="40" y="14" textAnchor="middle" fontSize="9" fill="#e6fff0">♫</text>
+    </>
+  )
+}
+
 /* ------------------------------------------------------------- registry */
 
 export type MoreKey =
@@ -715,6 +967,7 @@ export type MoreKey =
   | "bigben" | "bus" | "phonebox" | "shinkansen" | "yatai" | "hanafuda" | "highland" | "goat" | "usaco" | "totoro" | "penguin"
   | "michelin" | "tennis" | "applewatch" | "vans" | "rtx" | "printer" | "cpp" | "java" | "typescript" | "git" | "crab" | "godot"
   | "angular" | "spring" | "docker" | "k8s" | "gitlab" | "bitlift" | "segtree"
+  | "tartiflette" | "baguette" | "casamusica" | "saobento" | "lello" | "surf" | "southbank" | "punts" | "mathbridge" | "gown" | "steinway" | "yamaha" | "berlinphil"
 
 export const MORE: Record<MoreKey, { label: string; caption: string; accent: string; Art: () => ReactNode }> = {
   unagi: { label: "Unagi", caption: "Unagi: grilled eel on rice.", accent: "#ffb454", Art: Unagi },
@@ -758,5 +1011,18 @@ export const MORE: Record<MoreKey, { label: string; caption: string; accent: str
   k8s: { label: "Kubernetes", caption: "Kubernetes.", accent: "#4d8dff", Art: Kubernetes },
   gitlab: { label: "GitLab", caption: "GitLab.", accent: "#fc7a30", Art: Gitlab },
   bitlift: { label: "Binary lifting", caption: "Binary lifting: jump by powers of two.", accent: "#ff3da6", Art: BinaryLifting },
+  tartiflette: { label: "Tartiflette", caption: "Tartiflette: potatoes, lardons and melted reblochon.", accent: "#e9a23a", Art: Tartiflette },
+  baguette: { label: "French baguette", caption: "A French baguette.", accent: "#e0a24a", Art: Baguette },
+  casamusica: { label: "Casa da Música", caption: "Casa da Música, Porto.", accent: "#e6fff0", Art: CasaMusica },
+  saobento: { label: "Estação de São Bento", caption: "Estação de São Bento, Porto: the azulejo tile murals.", accent: "#4d8dff", Art: SaoBento },
+  lello: { label: "Livraria Lello", caption: "Livraria Lello, Porto: the red staircase.", accent: "#ff6b82", Art: Lello },
+  surf: { label: "Surfboard", caption: "Surfboard.", accent: "#19e3ff", Art: Surfboard },
+  southbank: { label: "Southbank Skate Park", caption: "Southbank skate park, London: the undercroft.", accent: "#ff3da6", Art: SouthbankSkate },
+  punts: { label: "Cambridge punts", caption: "Punting on the Cam, Cambridge.", accent: "#c8a46a", Art: Punts },
+  mathbridge: { label: "Mathematical Bridge", caption: "The Mathematical Bridge, Queens' College, Cambridge.", accent: "#c8a46a", Art: MathBridge },
+  gown: { label: "Formal hall gown", caption: "A Cambridge formal hall gown.", accent: "#e6fff0", Art: FormalGown },
+  steinway: { label: "Steinway Model D", caption: "Steinway & Sons Model D concert grand.", accent: "#ffcf4a", Art: Steinway },
+  yamaha: { label: "Yamaha GB1K", caption: "Yamaha GB1K baby grand piano.", accent: "#19e3ff", Art: Yamaha },
+  berlinphil: { label: "Berlin Philharmonic", caption: "Berlin Philharmonic: the Philharmonie, Berlin.", accent: "#ffcf4a", Art: BerlinPhil },
   segtree: { label: "Segment tree", caption: "Segment tree: range queries in log time.", accent: "#19e3ff", Art: SegmentTree },
 }

@@ -99,9 +99,7 @@ export function Hero() {
               <span className="blink">▶</span> ようこそ // welcome // bienvenido
             </p>
             <h1 className="font-pixel text-[2.6rem] leading-[1.05] sm:text-6xl lg:text-7xl">
-              <span className="glitch neon" data-text={profile.name}>
-                <Decrypt text={profile.name} />
-              </span>
+              <Decrypt text={profile.name} glitch className="glitch neon" />
             </h1>
             <p className="mt-5 font-pixel text-lg text-ink sm:text-2xl">
               ソフトウェアエンジニア <span className="text-magenta">/</span> 元医師 <span className="text-magenta">/</span> 競技プログラマー

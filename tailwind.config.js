@@ -4,50 +4,31 @@ const { fontFamily } = require("tailwindcss/defaultTheme")
 module.exports = {
   darkMode: ["class"],
   future: { hoverOnlyWhenSupported: true },
-  content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-  ],
+  content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}"],
   theme: {
     extend: {
-      transitionTimingFunction: {
-        "out-expo": "cubic-bezier(0.23, 1, 0.32, 1)",
-      },
+      transitionTimingFunction: { "out-expo": "cubic-bezier(0.23, 1, 0.32, 1)" },
       fontFamily: {
-        sans: ["var(--font-geist-sans)", ...fontFamily.sans],
-        mono: ["var(--font-geist-mono)", ...fontFamily.mono],
-        serif: ["var(--font-serif)", "Georgia", ...fontFamily.serif],
+        pixel: ["var(--font-pixel)", "monospace"],
+        mono: ["var(--font-code)", ...fontFamily.mono],
+        sans: ["var(--font-code)", ...fontFamily.mono],
       },
       colors: {
+        void: "var(--void)",
+        panel: "var(--panel)",
+        ink: "var(--ink)",
         muted: "var(--muted)",
-        surface: "var(--surface)",
-        brand: "var(--brand)",
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-        card: "var(--card)",
-        "card-foreground": "var(--card-foreground)",
-        popover: {
-          DEFAULT: "var(--popover)",
-          foreground: "var(--popover-foreground)",
-        },
+        phosphor: "var(--phosphor)",
+        dim: "var(--phosphor-dim)",
+        cyan: "var(--cyan)",
+        magenta: "var(--magenta)",
+        gold: "var(--gold)",
+        red: "var(--red)",
         border: "var(--border)",
-        input: "var(--input)",
-        ring: "var(--ring)",
-        accent: {
-          DEFAULT: "var(--accent)",
-          foreground: "var(--accent-foreground)",
-        },
-      },
-      borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        background: "var(--void)",
+        foreground: "var(--ink)",
       },
     },
   },
-  plugins: [
-    require('@tailwindcss/typography'),
-  ],
-} 
+  plugins: [],
+}

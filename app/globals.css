@@ -28,6 +28,7 @@
     --rank-orange: #fb923c;
     --rank-red: #f87171;
     --radius: 0.5rem;
+    --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   }
 }
 
@@ -62,5 +63,30 @@
 @layer components {
   .link {
     @apply underline decoration-border decoration-2 underline-offset-4 transition-colors hover:decoration-brand hover:text-brand;
+  }
+}
+
+/* One entrance for the whole page: the hero rises in once, staggered. */
+@layer components {
+  @keyframes hero-rise {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+  }
+  @keyframes hero-fade {
+    from {
+      opacity: 0;
+    }
+  }
+  .hero-in {
+    animation: hero-rise 450ms var(--ease-out) both;
+    animation-delay: calc(var(--i, 0) * 60ms);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-in {
+      animation: hero-fade 200ms ease-out both;
+      animation-delay: 0ms;
+    }
   }
 }

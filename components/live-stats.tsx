@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import snapshot from "@/content/stats.snapshot.json"
 
 const BASE = "https://raw.githubusercontent.com/isym444/isym444/main/assets/stats"
@@ -39,10 +39,39 @@ function Platform({ id, label, href, s }: { id: "atcoder" | "codeforces"; label:
   )
 }
 
+// Intrinsic sizes of the charts, so each one's slot is reserved before it loads (no layout jump).
+const CHART_SIZES: Record<string, [number, number]> = {
+  "solved-over-time": [933, 511],
+  ratings: [933, 511],
+  "difficulty-atcoder": [1483, 554],
+  "difficulty-codeforces": [1483, 554],
+  cses: [1481, 555],
+  languages: [1483, 494],
+}
+
 function Chart({ name, alt, className = "" }: { name: string; alt: string; className?: string }) {
+  const ref = useRef<HTMLImageElement>(null)
+  const [loaded, setLoaded] = useState(false)
+  const [w, h] = CHART_SIZES[name] ?? [2, 1]
+
+  // A cached image can finish before hydration, so onLoad alone would miss it.
+  useEffect(() => {
+    if (ref.current?.complete && ref.current.naturalWidth > 0) setLoaded(true)
+  }, [])
+
   return (
     // eslint-disable-next-line @next/next/no-img-element
-    <img src={`${BASE}/${name}.png`} alt={alt} loading="lazy" decoding="async" className={`h-auto w-full ${className}`} />
+    <img
+      ref={ref}
+      src={`${BASE}/${name}.png`}
+      alt={alt}
+      width={w}
+      height={h}
+      loading="lazy"
+      decoding="async"
+      onLoad={() => setLoaded(true)}
+      className={`h-auto w-full transition-opacity duration-300 ease-out-expo ${loaded ? "opacity-100" : "opacity-0"} ${className}`}
+    />
   )
 }
 

@@ -68,13 +68,13 @@ export default function Home() {
 
       <main className="min-w-0 pb-12 lg:py-14">
         <header className="pb-14 pt-4 lg:pt-0">
-          <p lang="es" className="mb-5 font-serif text-lg italic text-muted">
+          <p lang="es" style={{ "--i": 0 } as React.CSSProperties} className="hero-in mb-5 font-serif text-lg italic text-muted">
             Hi, hola, <span lang="ja">こんにちは</span>
           </p>
-          <h1 className="max-w-[18ch] font-serif text-5xl font-medium leading-[1.05] tracking-tight sm:text-6xl">
+          <h1 style={{ "--i": 1 } as React.CSSProperties} className="hero-in max-w-[18ch] font-serif text-5xl font-medium leading-[1.05] tracking-tight sm:text-6xl">
             Software engineer, former NHS doctor.
           </h1>
-          <p className="mt-6 max-w-[56ch] text-lg leading-relaxed text-muted">{profile.tagline}</p>
+          <p style={{ "--i": 2 } as React.CSSProperties} className="hero-in mt-6 max-w-[56ch] text-lg leading-relaxed text-muted">{profile.tagline}</p>
         </header>
 
         <Section id="about" title="About">

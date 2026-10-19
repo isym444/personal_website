@@ -10,7 +10,7 @@ import { playBlip } from "@/lib/audio";
 
 const LINES = [
   "$ whoami",
-  "Software engineer @ barclays, ex-NHS doctor, competitive programmer",
+  "Software engineer @ Barclays, ex-NHS doctor, competitive programmer",
   "$ cat ~/.interests",
   "Language learning, Classical Music, Travel,  Competitive Programming",
   "$ ./climb --target fuji",

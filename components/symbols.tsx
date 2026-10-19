@@ -1,5 +1,6 @@
 // Cultural symbols and places from my history. Each is a 80x80 neon line drawing.
 import type { ReactNode } from "react"
+import { MORE, type MoreKey } from "@/components/symbols-more"
 
 const L = { strokeWidth: 2, strokeLinejoin: "round", strokeLinecap: "round" } as const
 
@@ -749,11 +750,13 @@ function Coins() {
 
 /* ----------------------------------------------------------- registry etc. */
 
-export type SymbolKey =
+type BaseKey =
   | "lucha" | "pinata" | "cajeta" | "pozole" | "tamales" | "tacos" | "piramide" | "azteca" | "unam"
   | "kings" | "glasgow" | "rcm" | "hall" | "kit" | "icpcb" | "icpc" | "steth" | "brain"
   | "dazaifu" | "umegae" | "taipei" | "hk"
   | "macos" | "android" | "xlb" | "hotpot" | "badminton" | "skate" | "camera" | "books" | "omega" | "omamori" | "quest" | "g1" | "vasconcelos" | "partyhat" | "scimitar" | "coins"
+
+export type SymbolKey = BaseKey | MoreKey
 
 export const SYMBOLS: Record<SymbolKey, { label: string; caption: string; accent: string; Art: () => ReactNode }> = {
   lucha: { label: "Máscara de lucha libre", caption: "Máscara de lucha libre. Losing the mask is the ultimate defeat.", accent: "#ff3da6", Art: Lucha },
@@ -794,6 +797,7 @@ export const SYMBOLS: Record<SymbolKey, { label: string; caption: string; accent
   partyhat: { label: "Party hat", caption: "Party hat: RuneScape's most iconic item.", accent: "#ff3da6", Art: PartyHat },
   scimitar: { label: "Rune scimitar", caption: "Rune scimitar: a RuneScape classic.", accent: "#19e3ff", Art: Scimitar },
   coins: { label: "Coins", caption: "Coins: RuneScape's gold pieces.", accent: "#ffcf4a", Art: Coins },
+  ...MORE,
 }
 
 export function SymbolSvg({ k, className = "", title, style }: { k: SymbolKey; className?: string; title?: string; style?: React.CSSProperties }) {

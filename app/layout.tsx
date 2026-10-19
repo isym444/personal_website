@@ -13,6 +13,16 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://isym.uk"),
   title,
   description,
+  // Versioned URLs so browsers that cache tab icons hard (Safari) fetch the sombrero instead of the old default.
+  icons: {
+    icon: [
+      { url: "/sombrero-32.png?v=2", type: "image/png", sizes: "32x32" },
+      { url: "/sombrero-192.png?v=2", type: "image/png", sizes: "192x192" },
+      { url: "/sombrero.svg?v=2", type: "image/svg+xml", sizes: "any" },
+    ],
+    shortcut: [{ url: "/sombrero.ico?v=2" }],
+    apple: [{ url: "/sombrero-180.png?v=2", sizes: "180x180", type: "image/png" }],
+  },
   openGraph: { title, description, url: "https://isym.uk", siteName: "Ian Samir Yep Manzano", type: "website" },
 }
 

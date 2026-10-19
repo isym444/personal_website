@@ -40,7 +40,12 @@ export default function Home() {
         <Section id="music" kanji="音楽" title="Music" symbols={["rcm", "hall"]}>
           <Music />
         </Section>
-        <Section id="stats" kanji="統計" title="Live stats" symbols={["icpcb", "icpc", "badminton", "skate"]}>
+        <Section id="stats" kanji="統計" title="Live stats" symbols={[
+            "icpcb", "bitlift", "cpp", "totoro", "ramen", "segtree", "tennis", "eye", "usaco", "java", "shinkansen", "highland",
+            "typescript", "udon", "tokyotower", "git", "icpc", "angel", "crab", "yatai", "bigben", "docker", "onigiri", "k8s",
+            "skate", "greatwall", "gitlab", "hanafuda", "bus", "spring", "unagi", "skytree", "angular", "bellas", "phonebox", "godot",
+            "applewatch", "harbour", "rtx", "michelin", "vans", "goat", "nhm", "penguin", "printer", "badminton",
+          ]}>
           <StatsViz />
         </Section>
       </main>

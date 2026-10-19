@@ -1293,6 +1293,49 @@ function GreatBarrierReef() {
   )
 }
 
+function VochoTaxi() {
+  const wheel = (cx: number) => (
+    <g key={cx}>
+      <circle cx={cx} cy="55.4" r="7.2" fill="#0a0a0e" stroke="#cfd6dc" strokeWidth="1.5" />
+      <circle cx={cx} cy="55.4" r="4.2" fill="#9aa4ae" stroke="#e6fff0" strokeWidth="0.9" />
+      {[0, 72, 144, 216, 288].map((a) => (
+        <circle key={a} cx={(cx + Math.sin((a * Math.PI) / 180) * 2.5).toFixed(2)} cy={(55.4 - Math.cos((a * Math.PI) / 180) * 2.5).toFixed(2)} r="0.7" fill="#14181e" />
+      ))}
+      <circle cx={cx} cy="55.4" r="1" fill="#14181e" />
+    </g>
+  )
+  return (
+    <>
+      <ellipse cx="40" cy="64.6" rx="37" ry="2.2" fill="#000" opacity="0.45" />
+      {/* white body: long, low Beetle silhouette, nose to the right */}
+      <path d="M3 57C1 50 3 43 10 38C19 31 36 29 46 32L58 38C67 40 73 43 76.6 49L77.4 57Z" fill="#f4f7f9" stroke="#e6fff0" {...L} />
+      {/* blue fenders over each wheel */}
+      <path d="M3.4 57C3.4 48 10 43.6 18 43.6C26 43.6 32.6 48 32.6 57Z" fill="#1f4fd8" stroke="#6b9cff" strokeWidth="1.3" strokeLinejoin="round" />
+      <path d="M45.4 57C45.4 48.6 52 44 60 44C68 44 75 48 77.4 57Z" fill="#1f4fd8" stroke="#6b9cff" strokeWidth="1.3" strokeLinejoin="round" />
+      <path d="M63 40.6C69 41.4 73.4 44.6 75.6 49.4" fill="none" stroke="#6b9cff" strokeWidth="1.1" strokeLinecap="round" />
+      {/* windows with passengers */}
+      <path d="M12.6 41.6C13.6 36.6 18 34 24 33.4V41.6Z" fill="#12303a" stroke="#19e3ff" strokeWidth="0.8" strokeLinejoin="round" />
+      <path d="M28 33.2H42C46.4 34.2 50.4 37.4 53 41.6H28Z" fill="#12303a" stroke="#19e3ff" strokeWidth="0.8" strokeLinejoin="round" />
+      <circle cx="19.6" cy="38.2" r="1.9" fill="#ff9ec7" />
+      <path d="M17 41.6C17.4 39.8 21.8 39.8 22.2 41.6Z" fill="#ff9ec7" />
+      <circle cx="35" cy="37.2" r="2.1" fill="#e6c9a8" />
+      <circle cx="41" cy="38.6" r="1.9" fill="#c8a47a" />
+      <path d="M32.2 41.6C32.6 39.6 37.6 39.6 38 41.6ZM38.4 41.6C38.8 40 43.2 40 43.6 41.6Z" fill="#4d9cf0" />
+      {/* door, handle and number */}
+      <path d="M26.8 42V57M55 42.4V57" stroke="#9aa4ae" strokeWidth="1" />
+      <rect x="47.4" y="44" width="4.2" height="1.6" rx="0.8" fill="#cfd6dc" stroke="#14181e" strokeWidth="0.4" />
+      <text x="40" y="53.2" textAnchor="middle" fontSize="6" fontWeight="800" fill="#0a0a0e" fontFamily="var(--font-code), monospace">2179</text>
+      {/* lights and bumpers */}
+      <circle cx="70.6" cy="47.4" r="2.2" fill="#fff6c8" stroke="#14181e" strokeWidth="0.7" />
+      <rect x="3.4" y="49" width="2.8" height="3.6" rx="1" fill="#ff9f1c" stroke="#ffd08a" strokeWidth="0.7" />
+      <path d="M72.4 56.6H78.4V59.6H72.4ZM1.6 56.6H6.4V59H1.6Z" fill="#cfd6dc" stroke="#e6fff0" strokeWidth="0.8" strokeLinejoin="round" />
+      <path d="M34 58H46" stroke="#14181e" strokeWidth="1.2" strokeLinecap="round" />
+      {wheel(18)}
+      {wheel(60.6)}
+    </>
+  )
+}
+
 /* ------------------------------------------------------------- registry */
 
 export type MoreKey =
@@ -1300,7 +1343,7 @@ export type MoreKey =
   | "bigben" | "bus" | "phonebox" | "shinkansen" | "yatai" | "hanafuda" | "highland" | "goat" | "usaco" | "totoro" | "penguin"
   | "michelin" | "tennis" | "applewatch" | "vans" | "rtx" | "printer" | "cpp" | "java" | "typescript" | "git" | "crab" | "godot"
   | "angular" | "spring" | "docker" | "k8s" | "gitlab" | "bitlift" | "segtree"
-  | "scuba" | "reef"
+  | "scuba" | "reef" | "vocho"
   | "yoli" | "nata" | "irnbru" | "wellington" | "steamdeck" | "ubuntu" | "mindstorms" | "drone" | "pearl" | "djihq" | "keyboard" | "hamster" | "anki"
   | "tartiflette" | "baguette" | "casamusica" | "saobento" | "lello" | "surf" | "southbank" | "punts" | "mathbridge" | "gown" | "steinway" | "yamaha" | "berlinphil"
 
@@ -1346,6 +1389,7 @@ export const MORE: Record<MoreKey, { label: string; caption: string; accent: str
   k8s: { label: "Kubernetes", caption: "Kubernetes.", accent: "#4d8dff", Art: Kubernetes },
   gitlab: { label: "GitLab", caption: "GitLab.", accent: "#fc7a30", Art: Gitlab },
   bitlift: { label: "Binary lifting", caption: "Binary lifting: jump by powers of two.", accent: "#ff3da6", Art: BinaryLifting },
+  vocho: { label: "Acapulco vocho taxi", caption: "An Acapulco vocho taxi: the white and blue VW Beetle.", accent: "#4d7cff", Art: VochoTaxi },
   scuba: { label: "Scuba diving gear", caption: "Scuba diving gear: mask, snorkel, tank and regulator.", accent: "#19e3ff", Art: ScubaGear },
   reef: { label: "Great Barrier Reef", caption: "The Great Barrier Reef.", accent: "#ff3da6", Art: GreatBarrierReef },
   yoli: { label: "Refresco Yoli", caption: "Refresco Yoli: a Mexican soda, lemon flavour.", accent: "#ff8a1f", Art: Yoli },

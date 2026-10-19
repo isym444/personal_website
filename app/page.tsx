@@ -21,7 +21,7 @@ export default function Home() {
       <Hero />
       <PapelPicado className="relative z-10 -mt-6" />
       <main>
-        <Section id="about" kanji="紹介" title="About" symbols={["lucha", "pinata", "tacos", "tamales", "pozole", "cajeta", "piramide", "azteca", "unam", "vasconcelos", "yoli"]}>
+        <Section id="about" kanji="紹介" title="About" symbols={["lucha", "pinata", "tacos", "tamales", "pozole", "cajeta", "piramide", "azteca", "unam", "vasconcelos", "yoli", "vocho"]}>
           <Neofetch />
           <Greetings />
         </Section>

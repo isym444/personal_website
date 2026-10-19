@@ -1,20 +1,29 @@
-import { Arch, Tux } from "@/components/art"
-import { Reveal } from "@/components/reveal"
-import { about, hobbies } from "@/lib/content"
+import { Arch, Tux } from "@/components/art";
+import { Reveal } from "@/components/reveal";
+import { about, hobbies } from "@/lib/content";
 
 const ROWS: [string, string][] = [
-  ["OS", "Arch Linux (btw)"],
+  ["OS", "Arch Linux (btw), Android, MacOS, iOS"],
   ["Role", "Software Engineer @ Barclays"],
   ["Past", "Doctor, NHS (St Thomas' & Guy's)"],
   ["Edu", "BSc Software Eng, Glasgow | MB BChir, Cambridge"],
   ["Stack", "Angular, Spring Boot, Kafka, Kubernetes"],
-  ["Editor", "Neovim"],
+  ["Editor", "Neovim, VS Code"],
   ["Langs", "English, Español, 日本語, Français, Português, 中文"],
   ["Hobbies", hobbies],
   ["Uptime", "learning Japanese since 2017"],
-]
+];
 
-const SWATCHES = ["#ff3b4e", "#ffcf4a", "#3dff8b", "#19e3ff", "#4d7cff", "#ff3da6", "#e6fff0", "#555"]
+const SWATCHES = [
+  "#ff3b4e",
+  "#ffcf4a",
+  "#3dff8b",
+  "#19e3ff",
+  "#4d7cff",
+  "#ff3da6",
+  "#e6fff0",
+  "#555",
+];
 
 export function Neofetch() {
   return (
@@ -63,5 +72,5 @@ export function Neofetch() {
         </div>
       </Reveal>
     </div>
-  )
+  );
 }

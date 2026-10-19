@@ -21,17 +21,17 @@ export default function Home() {
       <Hero />
       <PapelPicado className="relative z-10 -mt-6" />
       <main>
-        <Section id="about" kanji="紹介" title="About" symbols={["lucha", "pinata", "tacos", "tamales", "pozole", "cajeta", "piramide", "azteca", "unam", "vasconcelos"]}>
+        <Section id="about" kanji="紹介" title="About" symbols={["lucha", "pinata", "tacos", "tamales", "pozole", "cajeta", "piramide", "azteca", "unam", "vasconcelos", "yoli"]}>
           <Neofetch />
           <Greetings />
         </Section>
-        <Section id="experience" kanji="経歴" title="Experience" symbols={["steth", "glasgow", "brain", "kit", "omega"]}>
+        <Section id="experience" kanji="経歴" title="Experience" symbols={["steth", "glasgow", "brain", "kit", "omega", "irnbru", "wellington"]}>
           <Experience />
         </Section>
         <Section id="highlights" kanji="実績" title="Highlights" symbols={["omamori", "books", "gown", "partyhat", "punts", "scimitar", "mathbridge", "coins"]}>
           <Highlights />
         </Section>
-        <Section id="projects" kanji="作品" title="Projects" symbols={["macos", "surf", "android", "southbank", "quest", "xlb", "g1", "hotpot", "camera", "tartiflette", "baguette"]}>
+        <Section id="projects" kanji="作品" title="Projects" symbols={["macos", "surf", "android", "southbank", "quest", "xlb", "g1", "hotpot", "camera", "tartiflette", "baguette", "nata", "steamdeck", "ubuntu", "mindstorms", "drone", "keyboard"]}>
           <Projects />
         </Section>
         <Section id="journey" kanji="旅" title="Journey" symbols={["kings", "dazaifu", "umegae", "casamusica", "taipei", "saobento", "hk", "lello"]}>
@@ -44,7 +44,7 @@ export default function Home() {
             "icpcb", "bitlift", "cpp", "totoro", "ramen", "segtree", "tennis", "eye", "usaco", "java", "shinkansen", "highland",
             "typescript", "udon", "tokyotower", "git", "icpc", "angel", "crab", "yatai", "bigben", "docker", "onigiri", "k8s",
             "skate", "greatwall", "gitlab", "hanafuda", "bus", "spring", "unagi", "skytree", "angular", "bellas", "phonebox", "godot",
-            "applewatch", "harbour", "rtx", "michelin", "vans", "goat", "nhm", "penguin", "printer", "badminton",
+            "applewatch", "harbour", "rtx", "michelin", "vans", "goat", "nhm", "penguin", "printer", "badminton", "pearl", "hamster", "djihq", "anki",
           ]}>
           <StatsViz />
         </Section>

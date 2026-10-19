@@ -1,6 +1,6 @@
 // More symbols for the Live stats margins: food, places, pets, tools and logos.
 import type { ReactNode } from "react"
-import { siAngular, siCplusplus, siDocker, siGit, siGitlab, siGodotengine, siKubernetes, siSpringboot, siTypescript } from "simple-icons"
+import { siAnki, siAngular, siCplusplus, siDocker, siGit, siGitlab, siGodotengine, siKubernetes, siSpringboot, siTypescript, siUbuntu } from "simple-icons"
 
 const L = { strokeWidth: 2, strokeLinejoin: "round", strokeLinecap: "round" } as const
 
@@ -960,6 +960,267 @@ function BerlinPhil() {
   )
 }
 
+/* ---------------------------------- drinks, statues, gadgets, pets, logos */
+
+function Yoli() {
+  return (
+    <>
+      <defs>
+        <clipPath id="yoli-body">
+          <path d="M35 24C35 28 30 30 30 36V68Q30 74 36 74H44Q50 74 50 68V36C50 30 45 28 45 24Z" />
+        </clipPath>
+      </defs>
+      <path d="M34 4H46L45 9H35Z" fill="#ffcf4a" stroke="#fff" strokeWidth="1.2" strokeLinejoin="round" />
+      <path d="M36 9H44V24C44 28 50 30 50 36V68Q50 74 44 74H36Q30 74 30 68V36C30 30 36 28 36 24Z" fill="#e6fff0" fillOpacity="0.1" stroke="#e6fff0" {...L} />
+      <g clipPath="url(#yoli-body)">
+        <rect x="28" y="30" width="24" height="46" fill="#ff8a1f" fillOpacity="0.55" />
+        <path d="M28 30Q34 27 40 30T52 30" fill="none" stroke="#ffd08a" strokeWidth="1.6" />
+      </g>
+      <rect x="30" y="42" width="20" height="16" fill="#0e1a2a" stroke="#ffcf4a" strokeWidth="1.4" />
+      <path d="M33 54Q40 46 47 54" fill="none" stroke="#3dff8b" strokeWidth="2.4" strokeLinecap="round" />
+      <circle cx="40" cy="49" r="3.4" fill="#ff3da6" stroke="#fff" strokeWidth="0.8" />
+      <path d="M40 46V44M38 45l2-1.4 2 1.4" stroke="#3dff8b" strokeWidth="1.2" strokeLinecap="round" />
+      {[[36, 66], [43, 63], [39, 71], [45, 70]].map(([x, y], i) => (
+        <circle key={i} cx={x} cy={y} r="1.3" fill="#fff" fillOpacity="0.7" className="twinkle" style={{ animationDelay: `${i * 0.4}s` }} />
+      ))}
+      <path d="M26 74H54" stroke="#e6fff0" strokeWidth="1.6" strokeLinecap="round" />
+    </>
+  )
+}
+
+function PastelNata() {
+  return (
+    <>
+      <g fill="none" stroke="#fff3d6" strokeOpacity="0.85" strokeWidth="2" strokeLinecap="round" className="steam">
+        <path d="M32 22c-4-4 4-6 0-11M44 20c-4-4 4-6 0-11" />
+      </g>
+      <path d="M12 38L19 62Q40 70 61 62L68 38Z" fill="#c98a2b" stroke="#ffd08a" {...L} />
+      <path d="M22 40L26 64M30 41L33 66M38 42V67M46 41L47 66M54 40L52 64M62 39L59 62" stroke="#8a5a14" strokeWidth="1.4" strokeLinecap="round" />
+      <ellipse cx="40" cy="38" rx="30" ry="11" fill="#c98a2b" stroke="#ffd08a" strokeWidth="2" />
+      <ellipse cx="40" cy="38" rx="25" ry="8.4" fill="#f6d36a" stroke="#fff3c4" strokeWidth="1.6" />
+      {[[30, 36, 4], [44, 40, 3.6], [52, 35, 3], [36, 41, 2.6]].map(([x, y, r], i) => (
+        <ellipse key={i} cx={x} cy={y} rx={r} ry={r * 0.55} fill="#a34a14" fillOpacity="0.8" />
+      ))}
+      {[[26, 38], [40, 33], [48, 38], [34, 35], [56, 38]].map(([x, y], i) => (
+        <circle key={i} cx={x} cy={y} r="0.9" fill="#7a3a10" />
+      ))}
+    </>
+  )
+}
+
+function IrnBru() {
+  return (
+    <>
+      <ellipse cx="40" cy="14" rx="15" ry="4" fill="#9aa4ae" stroke="#e6fff0" strokeWidth="1.6" />
+      <path d="M25 14V66Q25 72 40 72T55 66V14" fill="#ff7a1a" fillOpacity="0.3" stroke="#ff7a1a" {...L} />
+      <ellipse cx="40" cy="14" rx="9" ry="2.2" fill="none" stroke="#e6fff0" strokeWidth="1" />
+      <path d="M25 32H55V48H25Z" fill="#0e2a6a" stroke="#4d9cf0" strokeWidth="1.6" />
+      <path d="M28 40Q34 35 40 40T52 40" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" />
+      <path d="M40 52V62M40 56L35 53M40 58L45 55" stroke="#3dff8b" strokeWidth="1.8" strokeLinecap="round" />
+      <path d="M40 52L36 46M40 52L44 46M40 52V45" stroke="#b455d6" strokeWidth="2.2" strokeLinecap="round" />
+      <path d="M30 18V30M30 52V68" stroke="#fff" strokeOpacity="0.35" strokeWidth="2" strokeLinecap="round" />
+      {[[34, 24], [46, 26], [42, 20]].map(([x, y], i) => (
+        <circle key={i} cx={x} cy={y} r="1.3" fill="#ffd08a" className="twinkle" style={{ animationDelay: `${i * 0.5}s` }} />
+      ))}
+    </>
+  )
+}
+
+function Wellington() {
+  return (
+    <>
+      <path d="M40 2L35 16H45Z" fill="#ff7a1a" stroke="#ffd08a" strokeWidth="1.4" strokeLinejoin="round" />
+      <path d="M37.6 9H42.4M36.4 13H43.6" stroke="#fff" strokeWidth="1.8" />
+      <circle cx="40" cy="19" r="3.6" fill="#c8a46a" stroke="#e8d3a8" strokeWidth="1" />
+      <path d="M38 22V34M34 26L38 24M46 26L42 24" stroke="#c8a46a" strokeWidth="3.2" strokeLinecap="round" />
+      <path d="M46 24L56 22" stroke="#c8a46a" strokeWidth="2" strokeLinecap="round" />
+      <path d="M16 46C16 38 28 35 40 36C48 36 54 35 58 31L62 24L67 27L65 36C63 42 61 45 59 47L59 55H55L55 48C46 50 34 50 28 48L26 55H22L22 48C18 48 16 47 16 46Z" fill="#c8a46a" fillOpacity="0.3" stroke="#c8a46a" {...L} />
+      <path d="M16 44C10 46 8 52 10 56" fill="none" stroke="#c8a46a" strokeWidth="2.4" strokeLinecap="round" />
+      <path d="M64 25L68 22" stroke="#c8a46a" strokeWidth="2" strokeLinecap="round" />
+      <rect x="10" y="56" width="60" height="8" fill="#3a3f46" stroke="#9aa4ae" strokeWidth="1.8" />
+      <rect x="6" y="64" width="68" height="8" fill="#2a2f36" stroke="#9aa4ae" strokeWidth="1.8" />
+      <path d="M14 60H66" stroke="#9aa4ae" strokeOpacity="0.6" strokeWidth="1.2" />
+    </>
+  )
+}
+
+function SteamDeck() {
+  return (
+    <>
+      <rect x="4" y="22" width="72" height="38" rx="15" fill="#0a0d12" stroke="#e6fff0" {...L} />
+      <rect x="22" y="26" width="36" height="26" rx="3" fill="#0e2a3a" stroke="#1a9fff" strokeWidth="2" />
+      <path d="M26 46L34 36L40 42L46 32L54 44" fill="none" stroke="#1a9fff" strokeOpacity="0.7" strokeWidth="1.6" strokeLinejoin="round" />
+      <circle cx="14" cy="34" r="4.6" fill="#14181e" stroke="#9aa4ae" strokeWidth="1.6" />
+      <circle cx="66" cy="46" r="4.6" fill="#14181e" stroke="#9aa4ae" strokeWidth="1.6" />
+      <path d="M14 43V51M10 47H18" stroke="#e6fff0" strokeWidth="3.2" strokeLinecap="round" />
+      {[[66, 31, "#ffcf4a"], [61, 36, "#3dff8b"], [71, 36, "#ff3b4e"], [66, 41, "#4d9cf0"]].map(([x, y, c], i) => (
+        <circle key={i} cx={x as number} cy={y as number} r="2.6" fill="#14181e" stroke={c as string} strokeWidth="1.6" />
+      ))}
+      <rect x="22" y="55" width="9" height="3" rx="1.4" fill="#14181e" stroke="#9aa4ae" strokeWidth="1" />
+      <rect x="49" y="55" width="9" height="3" rx="1.4" fill="#14181e" stroke="#9aa4ae" strokeWidth="1" />
+      <path d="M14 22Q18 18 24 18M66 22Q62 18 56 18" fill="none" stroke="#9aa4ae" strokeWidth="2" strokeLinecap="round" />
+    </>
+  )
+}
+
+function Ubuntu() {
+  return <Logo path={siUbuntu.path} colour="#ff7a2f" />
+}
+function Anki() {
+  return <Logo path={siAnki.path} colour="#5cb0e8" />
+}
+
+function Mindstorms() {
+  return (
+    <>
+      {[16, 30, 44, 58].map((x) => (
+        <rect key={x} x={x} y="10" width="8" height="6" rx="1" fill="#14181e" stroke="#ffcf4a" strokeWidth="1.4" />
+      ))}
+      <rect x="12" y="16" width="56" height="44" rx="6" fill="#2a2f36" stroke="#cfd8dc" {...L} />
+      <rect x="26" y="22" width="28" height="18" rx="2" fill="#b7e4a0" fillOpacity="0.28" stroke="#7dff4a" strokeWidth="1.8" />
+      <path d="M30 34Q34 26 40 32T50 28" fill="none" stroke="#7dff4a" strokeWidth="1.6" strokeLinecap="round" />
+      <rect x="29" y="44" width="22" height="12" rx="2" fill="#14181e" stroke="#9aa4ae" strokeWidth="1.2" />
+      <path d="M40 46V54M35 50H45" stroke="#cfd8dc" strokeWidth="2.2" strokeLinecap="round" />
+      <rect x="15" y="22" width="8" height="5" rx="1" fill="#14181e" stroke="#9aa4ae" strokeWidth="1" />
+      <rect x="57" y="22" width="8" height="5" rx="1" fill="#14181e" stroke="#9aa4ae" strokeWidth="1" />
+      {[16, 30, 44, 58].map((x) => (
+        <rect key={x} x={x} y="60" width="8" height="6" rx="1" fill="#14181e" stroke="#ffcf4a" strokeWidth="1.4" />
+      ))}
+      <circle cx="18" cy="48" r="3" fill="#ffcf4a" />
+      <circle cx="62" cy="48" r="3" fill="#ff3b4e" />
+      <path d="M8 70H72" stroke="#ffcf4a" strokeWidth="2" strokeLinecap="round" strokeDasharray="6 4" />
+    </>
+  )
+}
+
+function Drone() {
+  const prop = (cx: number, cy: number, delay: number) => (
+    <g key={`${cx}${cy}`}>
+      <circle cx={cx} cy={cy} r="11" fill="#19e3ff" fillOpacity="0.1" stroke="#19e3ff" strokeWidth="1.4" strokeDasharray="4 3" />
+      <path d={`M${cx - 10} ${cy}H${cx + 10}`} stroke="#e6fff0" strokeWidth="2" strokeLinecap="round" className="twinkle" style={{ animationDelay: `${delay}s` }} />
+      <circle cx={cx} cy={cy} r="2.6" fill="#14181e" stroke="#e6fff0" strokeWidth="1.4" />
+    </g>
+  )
+  return (
+    <>
+      <path d="M32 36L18 24M48 36L62 24M32 44L18 56M48 44L62 56" stroke="#9aa4ae" strokeWidth="3" strokeLinecap="round" />
+      {prop(16, 22, 0)}
+      {prop(64, 22, 0.3)}
+      {prop(16, 58, 0.6)}
+      {prop(64, 58, 0.9)}
+      <rect x="28" y="30" width="24" height="20" rx="8" fill="#14181e" stroke="#e6fff0" {...L} />
+      <circle cx="40" cy="40" r="4" fill="#06090d" stroke="#19e3ff" strokeWidth="1.8" />
+      <circle cx="40" cy="62" r="4.4" fill="#06090d" stroke="#e6fff0" strokeWidth="1.8" />
+      <path d="M40 50V58" stroke="#9aa4ae" strokeWidth="2" />
+      <circle cx="33" cy="34" r="1.4" fill="#3dff8b" />
+      <circle cx="47" cy="34" r="1.4" fill="#ff3b4e" />
+    </>
+  )
+}
+
+function PearlTower() {
+  return (
+    <>
+      <path d="M40 0V12" stroke="#ff3da6" strokeWidth="2" strokeLinecap="round" />
+      <circle cx="40" cy="15" r="4.4" fill="#2a0a2a" stroke="#ff3da6" strokeWidth="1.8" />
+      <circle cx="40" cy="30" r="9" fill="#2a0a2a" stroke="#ff3da6" {...L} />
+      <circle cx="40" cy="30" r="9" fill="#ff3da6" fillOpacity="0.2" />
+      <path d="M34 26Q40 22 46 26" fill="none" stroke="#ff9ac8" strokeWidth="1.2" />
+      <path d="M40 39V46" stroke="#19e3ff" strokeWidth="2.4" strokeLinecap="round" />
+      <circle cx="40" cy="49" r="3.6" fill="#2a0a2a" stroke="#ff3da6" strokeWidth="1.8" />
+      <path d="M40 52V56" stroke="#19e3ff" strokeWidth="2.4" strokeLinecap="round" />
+      <circle cx="40" cy="62" r="7" fill="#2a0a2a" stroke="#ff3da6" {...L} />
+      <circle cx="40" cy="62" r="7" fill="#ff3da6" fillOpacity="0.2" />
+      <path d="M34 67L24 76M46 67L56 76M40 69V76" stroke="#19e3ff" strokeWidth="2.4" strokeLinecap="round" />
+      <path d="M18 76H62" stroke="#19e3ff" strokeWidth="2" strokeLinecap="round" />
+      <circle cx="40" cy="30" r="9" fill="none" stroke="#ffcf4a" strokeOpacity="0.5" strokeWidth="1" strokeDasharray="2 3" />
+    </>
+  )
+}
+
+function DjiHq() {
+  const grid = (x: number, y: number, w: number, h: number) =>
+    Array.from({ length: Math.floor(h / 6) }, (_, r) => <path key={`${x}${r}`} d={`M${x} ${y + 6 + r * 6}H${x + w}`} stroke="#19e3ff" strokeOpacity="0.4" strokeWidth="0.9" />)
+  return (
+    <>
+      <path d="M10 70V20Q10 12 20 10L34 8V70Z" fill="#0e2630" stroke="#19e3ff" {...L} />
+      <path d="M46 70V14L60 6Q70 6 70 16V70Z" fill="#0e2630" stroke="#19e3ff" {...L} />
+      {grid(10, 12, 24, 56)}
+      {grid(46, 8, 24, 60)}
+      <path d="M22 12V70M58 8V70" stroke="#19e3ff" strokeOpacity="0.35" strokeWidth="0.9" />
+      <path d="M34 28L46 26V34L34 36Z" fill="#e6fff0" fillOpacity="0.2" stroke="#e6fff0" strokeWidth="1.6" strokeLinejoin="round" />
+      <path d="M34 44L46 42V48L34 50Z" fill="#e6fff0" fillOpacity="0.15" stroke="#e6fff0" strokeWidth="1.4" strokeLinejoin="round" />
+      <path d="M6 70H74" stroke="#19e3ff" strokeWidth="2" strokeLinecap="round" />
+      <g transform="translate(46 6) scale(0.35)">
+        <path d="M0 0L30 8M30 0L0 8" stroke="#ffcf4a" strokeWidth="3" strokeLinecap="round" />
+      </g>
+    </>
+  )
+}
+
+function SplitKeyboard() {
+  const half = (flip: boolean) => (
+    <g transform={flip ? "translate(80 0) scale(-1 1)" : undefined}>
+      <g transform="translate(4 20) rotate(-9 24 20)">
+        {Array.from({ length: 3 }, (_, r) =>
+          Array.from({ length: 4 }, (_, c) => (
+            <rect
+              key={`${r}${c}`}
+              x={c * 8.4}
+              y={r * 8.4 + (c === 0 ? 1.6 : c === 2 ? -1.6 : c === 3 ? 0.8 : 0)}
+              width="7"
+              height="7"
+              rx="1.6"
+              fill="#12303a"
+              stroke={(r + c) % 5 === 0 ? "#ff3da6" : "#19e3ff"}
+              strokeWidth="1.2"
+            />
+          )),
+        )}
+        <g transform="translate(14 28) rotate(18 6 6)">
+          {[0, 1, 2].map((i) => (
+            <rect key={i} x={i * 8.6} y={i * 1.8} width="8" height="9" rx="1.8" fill="#12303a" stroke={i === 1 ? "#ffcf4a" : "#19e3ff"} strokeWidth="1.2" />
+          ))}
+        </g>
+      </g>
+    </g>
+  )
+  return (
+    <>
+      {half(false)}
+      {half(true)}
+      <path d="M4 66H76" stroke="#19e3ff" strokeOpacity="0.4" strokeWidth="1.2" strokeLinecap="round" />
+      <path d="M38 40H42" stroke="#e6fff0" strokeWidth="1.4" strokeLinecap="round" strokeDasharray="1 2" />
+    </>
+  )
+}
+
+function Hamster() {
+  return (
+    <>
+      <ellipse cx="40" cy="52" rx="26" ry="22" fill="#f6f8fa" stroke="#fff" strokeWidth="2" />
+      <circle cx="25" cy="20" r="8" fill="#f6f8fa" stroke="#fff" strokeWidth="1.8" />
+      <circle cx="55" cy="20" r="8" fill="#f6f8fa" stroke="#fff" strokeWidth="1.8" />
+      <circle cx="25" cy="20" r="4.4" fill="#ff9ec7" />
+      <circle cx="55" cy="20" r="4.4" fill="#ff9ec7" />
+      <ellipse cx="40" cy="36" rx="24" ry="19" fill="#f6f8fa" stroke="#fff" strokeWidth="2" />
+      <ellipse cx="22" cy="42" rx="7.4" ry="6" fill="#ffd9e6" fillOpacity="0.8" />
+      <ellipse cx="58" cy="42" rx="7.4" ry="6" fill="#ffd9e6" fillOpacity="0.8" />
+      <circle cx="32" cy="33" r="3.2" fill="#14100c" />
+      <circle cx="48" cy="33" r="3.2" fill="#14100c" />
+      <circle cx="33" cy="32" r="1.1" fill="#fff" />
+      <circle cx="49" cy="32" r="1.1" fill="#fff" />
+      <path d="M38 39L40 41L42 39Z" fill="#ff7aa8" stroke="#ff9ec7" strokeWidth="1" strokeLinejoin="round" />
+      <path d="M40 41V43M37 44Q40 46 43 44" fill="none" stroke="#9a6a7a" strokeWidth="1.2" strokeLinecap="round" />
+      <path d="M14 38L24 40M14 44L24 43M66 38L56 40M66 44L56 43" stroke="#cfd8dc" strokeWidth="1.2" strokeLinecap="round" />
+      <ellipse cx="33" cy="58" rx="4.4" ry="3.6" fill="#ffd9e6" stroke="#fff" strokeWidth="1.2" />
+      <ellipse cx="47" cy="58" rx="4.4" ry="3.6" fill="#ffd9e6" stroke="#fff" strokeWidth="1.2" />
+      <ellipse cx="40" cy="57" rx="5" ry="2.6" fill="#8a6a3a" stroke="#c8a46a" strokeWidth="1" transform="rotate(-12 40 57)" />
+      <path d="M36 72h5M45 72h5" stroke="#ffd9e6" strokeWidth="3.6" strokeLinecap="round" />
+    </>
+  )
+}
+
 /* ------------------------------------------------------------- registry */
 
 export type MoreKey =
@@ -967,6 +1228,7 @@ export type MoreKey =
   | "bigben" | "bus" | "phonebox" | "shinkansen" | "yatai" | "hanafuda" | "highland" | "goat" | "usaco" | "totoro" | "penguin"
   | "michelin" | "tennis" | "applewatch" | "vans" | "rtx" | "printer" | "cpp" | "java" | "typescript" | "git" | "crab" | "godot"
   | "angular" | "spring" | "docker" | "k8s" | "gitlab" | "bitlift" | "segtree"
+  | "yoli" | "nata" | "irnbru" | "wellington" | "steamdeck" | "ubuntu" | "mindstorms" | "drone" | "pearl" | "djihq" | "keyboard" | "hamster" | "anki"
   | "tartiflette" | "baguette" | "casamusica" | "saobento" | "lello" | "surf" | "southbank" | "punts" | "mathbridge" | "gown" | "steinway" | "yamaha" | "berlinphil"
 
 export const MORE: Record<MoreKey, { label: string; caption: string; accent: string; Art: () => ReactNode }> = {
@@ -1011,6 +1273,19 @@ export const MORE: Record<MoreKey, { label: string; caption: string; accent: str
   k8s: { label: "Kubernetes", caption: "Kubernetes.", accent: "#4d8dff", Art: Kubernetes },
   gitlab: { label: "GitLab", caption: "GitLab.", accent: "#fc7a30", Art: Gitlab },
   bitlift: { label: "Binary lifting", caption: "Binary lifting: jump by powers of two.", accent: "#ff3da6", Art: BinaryLifting },
+  yoli: { label: "Refresco Yoli", caption: "Refresco Yoli: a Mexican fruit soda.", accent: "#ff8a1f", Art: Yoli },
+  nata: { label: "Pastel de nata", caption: "Pastel de nata: Portuguese custard tart.", accent: "#f6d36a", Art: PastelNata },
+  irnbru: { label: "Irn-Bru", caption: "Irn-Bru: Scotland's other national drink.", accent: "#ff7a1a", Art: IrnBru },
+  wellington: { label: "Duke of Wellington", caption: "The Duke of Wellington statue in Glasgow, traffic cone included.", accent: "#ff7a1a", Art: Wellington },
+  steamdeck: { label: "Steam Deck", caption: "Steam Deck.", accent: "#1a9fff", Art: SteamDeck },
+  ubuntu: { label: "Ubuntu", caption: "Ubuntu.", accent: "#ff7a2f", Art: Ubuntu },
+  mindstorms: { label: "LEGO Mindstorms", caption: "LEGO Mindstorms.", accent: "#ffcf4a", Art: Mindstorms },
+  drone: { label: "DJI drone", caption: "A DJI drone.", accent: "#19e3ff", Art: Drone },
+  pearl: { label: "Oriental Pearl Tower", caption: "Oriental Pearl Tower, Shanghai.", accent: "#ff3da6", Art: PearlTower },
+  djihq: { label: "DJI headquarters", caption: "DJI headquarters, Shenzhen: Sky City.", accent: "#19e3ff", Art: DjiHq },
+  keyboard: { label: "Split keyboard", caption: "A split keyboard.", accent: "#19e3ff", Art: SplitKeyboard },
+  hamster: { label: "White hamster", caption: "A white hamster.", accent: "#ffd9e6", Art: Hamster },
+  anki: { label: "Anki", caption: "Anki.", accent: "#5cb0e8", Art: Anki },
   tartiflette: { label: "Tartiflette", caption: "Tartiflette: potatoes, lardons and melted reblochon.", accent: "#e9a23a", Art: Tartiflette },
   baguette: { label: "French baguette", caption: "A French baguette.", accent: "#e0a24a", Art: Baguette },
   casamusica: { label: "Casa da Música", caption: "Casa da Música, Porto.", accent: "#e6fff0", Art: CasaMusica },

@@ -4,17 +4,23 @@ import { useRef } from "react"
 import { Binary, Building2, Glasses, Languages as LanguagesIcon, Stethoscope, Trophy, Wallet } from "lucide-react"
 import { Arch, Lantern, Tux } from "@/components/art"
 import { Reveal } from "@/components/reveal"
+import { Belt, Gutters } from "@/components/souvenirs"
+import type { SymbolKey } from "@/components/symbols"
 import { experience, highlights, languages, moreProjects, profile, projects, type Project } from "@/lib/content"
 
-export function Section({ id, kanji, title, children }: { id: string; kanji: string; title: string; children: React.ReactNode }) {
+export function Section({ id, kanji, title, symbols, children }: { id: string; kanji: string; title: string; symbols?: SymbolKey[]; children: React.ReactNode }) {
   return (
-    <section id={id} className="relative z-10 mx-auto max-w-6xl px-5 py-16 sm:px-10 sm:py-24">
-      <Reveal as="header" className="mb-10">
-        <h2 className="font-pixel text-3xl sm:text-4xl">
-          <span className="text-magenta">{"//"}</span> <span className="neon">{kanji}</span> <span className="text-ink">{title}</span>
-        </h2>
-      </Reveal>
-      {children}
+    <section id={id} className="relative">
+      {symbols && <Gutters keys={symbols} />}
+      <div className="relative z-10 mx-auto max-w-6xl px-5 py-16 sm:px-10 sm:py-24">
+        <Reveal as="header" className="mb-10">
+          <h2 className="font-pixel text-3xl sm:text-4xl">
+            <span className="text-magenta">{"//"}</span> <span className="neon">{kanji}</span> <span className="text-ink">{title}</span>
+          </h2>
+        </Reveal>
+        {symbols && <Belt keys={symbols} />}
+        {children}
+      </div>
     </section>
   )
 }

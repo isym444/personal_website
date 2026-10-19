@@ -1,6 +1,5 @@
 import Image from "next/image"
 import { LiveStats } from "@/components/live-stats"
-import { ThemeSwitch } from "@/components/theme-switch"
 import { about, experience, highlights, languages, moreProjects, profile, projects, tech } from "@/lib/content"
 
 export const runtime = "edge"
@@ -65,9 +64,6 @@ export default function Home() {
           <li><ExternalLink href={profile.codeforces}>Codeforces</ExternalLink></li>
         </ul>
 
-        <div className="mt-6 lg:absolute lg:bottom-14 lg:mt-0">
-          <ThemeSwitch />
-        </div>
       </aside>
 
       <main className="min-w-0 pb-12 lg:py-14">

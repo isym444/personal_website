@@ -4,31 +4,7 @@
 
 @layer base {
   :root {
-    --background: #f4f6f8;
-    --foreground: #14283b;
-    --muted: #566676;
-    --surface: #e9eef2;
-    --border: #d5dde4;
-    --brand: #0f7b6c;
-    --card: #e9eef2;
-    --card-foreground: #14283b;
-    --input: #d5dde4;
-    --ring: #0f7b6c;
-    --radius: 0.5rem;
-    --accent: #e9eef2;
-    --accent-foreground: #14283b;
-
-    --rank-gray: #6f7780;
-    --rank-brown: #8b4a20;
-    --rank-green: #1f8a3b;
-    --rank-cyan: #0e8f93;
-    --rank-blue: #2563eb;
-    --rank-violet: #9333ea;
-    --rank-yellow: #8f7500;
-    --rank-orange: #c2650a;
-    --rank-red: #dc2626;
-  }
-  .dark {
+    color-scheme: dark;
     --background: #0d1822;
     --foreground: #e6edf2;
     --muted: #93a4b3;
@@ -51,6 +27,7 @@
     --rank-yellow: #facc15;
     --rank-orange: #fb923c;
     --rank-red: #f87171;
+    --radius: 0.5rem;
   }
 }
 

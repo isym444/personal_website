@@ -430,12 +430,330 @@ function HongKong() {
   )
 }
 
+
+/* ---------------------------------------------- devices, hobbies, food etc. */
+
+function MacOS() {
+  return (
+    <>
+      <rect x="14" y="16" width="52" height="36" rx="3.5" fill="#0e1a2a" stroke="#e6fff0" {...L} />
+      <circle cx="21" cy="22" r="1.8" fill="#ff5f57" />
+      <circle cx="27" cy="22" r="1.8" fill="#febc2e" />
+      <circle cx="33" cy="22" r="1.8" fill="#28c840" />
+      <text x="40" y="45" textAnchor="middle" fontSize="22" fill="#19e3ff" fontFamily="sans-serif">⌘</text>
+      <path d="M8 56H72L67 63H13Z" fill="#12202e" stroke="#e6fff0" {...L} />
+      <path d="M33 59.5H47" stroke="#e6fff0" strokeWidth="1.6" strokeLinecap="round" />
+    </>
+  )
+}
+
+function Android() {
+  return (
+    <>
+      <path d="M26 22L21 13M54 22L59 13" stroke="#3dff8b" strokeWidth="2" strokeLinecap="round" />
+      <path d="M20 42A20 20 0 0 1 60 42Z" fill="#3dff8b" fillOpacity="0.22" stroke="#3dff8b" {...L} />
+      <circle cx="32" cy="34" r="2.6" fill="#fff" />
+      <circle cx="48" cy="34" r="2.6" fill="#fff" />
+      <rect x="20" y="45" width="40" height="19" rx="4" fill="#3dff8b" fillOpacity="0.15" stroke="#3dff8b" {...L} />
+      <rect x="12" y="45" width="6" height="15" rx="3" fill="#3dff8b" fillOpacity="0.15" stroke="#3dff8b" strokeWidth="1.8" />
+      <rect x="62" y="45" width="6" height="15" rx="3" fill="#3dff8b" fillOpacity="0.15" stroke="#3dff8b" strokeWidth="1.8" />
+      <rect x="28" y="64" width="7" height="11" rx="3" fill="#3dff8b" fillOpacity="0.15" stroke="#3dff8b" strokeWidth="1.8" />
+      <rect x="45" y="64" width="7" height="11" rx="3" fill="#3dff8b" fillOpacity="0.15" stroke="#3dff8b" strokeWidth="1.8" />
+    </>
+  )
+}
+
+function Xlb() {
+  const d = (cx: number, cy: number) => (
+    <g key={cx}>
+      <ellipse cx={cx} cy={cy} rx="9" ry="6.5" fill="#fff4dc" stroke="#fff" strokeWidth="1.2" />
+      <path d={`M${cx} ${cy - 6}L${cx - 6} ${cy + 1}M${cx} ${cy - 6}L${cx - 3} ${cy + 3}M${cx} ${cy - 6}L${cx + 3} ${cy + 3}M${cx} ${cy - 6}L${cx + 6} ${cy + 1}`} stroke="#d9b27a" strokeWidth="1" strokeLinecap="round" />
+      <circle cx={cx} cy={cy - 6.5} r="1.6" fill="#fff4dc" stroke="#d9b27a" strokeWidth="0.8" />
+    </g>
+  )
+  return (
+    <>
+      <g fill="none" stroke="#fff3d6" strokeOpacity="0.85" strokeWidth="2" strokeLinecap="round" className="steam">
+        <path d="M26 24c-5-5 5-8 0-13M40 22c-5-5 5-8 0-13M54 24c-5-5 5-8 0-13" />
+      </g>
+      <rect x="12" y="46" width="56" height="22" rx="4" fill="#6b4c1e" stroke="#e0b866" {...L} />
+      <path d="M12 54H68M12 61H68M24 46V68M36 46V68M48 46V68M60 46V68" stroke="#e0b866" strokeOpacity="0.45" strokeWidth="1.1" />
+      <ellipse cx="40" cy="46" rx="29" ry="6.5" fill="#2e1f0a" stroke="#e0b866" strokeWidth="2" />
+      {d(26, 42)}
+      {d(40, 40)}
+      {d(54, 42)}
+    </>
+  )
+}
+
+function Hotpot() {
+  return (
+    <>
+      <g fill="none" stroke="#ffd9d0" strokeOpacity="0.8" strokeWidth="2" strokeLinecap="round" className="steam">
+        <path d="M30 14c-4-4 4-6 0-10M42 12c-4-4 4-6 0-10M54 14c-4-4 4-6 0-10" />
+      </g>
+      <rect x="4" y="40" width="9" height="7" rx="2" fill="#2a1a08" stroke="#ffcf4a" strokeWidth="1.6" />
+      <rect x="67" y="40" width="9" height="7" rx="2" fill="#2a1a08" stroke="#ffcf4a" strokeWidth="1.6" />
+      <circle cx="40" cy="46" r="29" fill="#1a1208" stroke="#ffcf4a" {...L} />
+      <path d="M40 19A27 27 0 0 0 40 73A13.5 13.5 0 0 0 40 46A13.5 13.5 0 0 1 40 19Z" fill="#d62828" stroke="#ff6b6b" strokeWidth="1.2" />
+      <path d="M40 19A27 27 0 0 1 40 73A13.5 13.5 0 0 0 40 46A13.5 13.5 0 0 1 40 19Z" fill="#f3e6b0" fillOpacity="0.55" stroke="#f3e6b0" strokeWidth="1.2" />
+      {[[26, 40], [30, 58], [22, 50]].map(([x, y], i) => (
+        <path key={i} d={`M${x} ${y}q4 -5 8 0`} fill="none" stroke="#ffcf4a" strokeWidth="2" strokeLinecap="round" />
+      ))}
+      <circle cx="56" cy="42" r="4" fill="#fff" stroke="#d9b27a" strokeWidth="1" />
+      <circle cx="52" cy="58" r="5" fill="#ff9ec7" stroke="#fff" strokeWidth="1" />
+      <path d="M49 58a3 3 0 0 1 6 0" fill="none" stroke="#fff" strokeWidth="0.9" />
+      {[[32, 34], [28, 62], [58, 50]].map(([x, y], i) => (
+        <circle key={i} cx={x} cy={y} r="1.6" fill="#fff" fillOpacity="0.8" className="twinkle" style={{ animationDelay: `${i * 0.4}s` }} />
+      ))}
+    </>
+  )
+}
+
+function Badminton() {
+  return (
+    <>
+      <defs>
+        <clipPath id="bd-head">
+          <ellipse cx="30" cy="26" rx="13" ry="17" />
+        </clipPath>
+      </defs>
+      <g transform="rotate(-38 30 40)">
+        <g clipPath="url(#bd-head)" stroke="#ff3da6" strokeOpacity="0.7" strokeWidth="0.9">
+          {[19, 23, 27, 31, 35, 39, 43].map((x) => (
+            <path key={x} d={`M${x - 13} 6V46`} transform="translate(0 0)" />
+          ))}
+          {[12, 17, 22, 27, 32, 37].map((y) => (
+            <path key={y} d={`M12 ${y}H48`} />
+          ))}
+        </g>
+        <ellipse cx="30" cy="26" rx="13" ry="17" fill="none" stroke="#ff3da6" strokeWidth="2.6" />
+        <path d="M22 40L30 47L38 40M30 47V62" fill="none" stroke="#ff3da6" {...L} />
+        <rect x="27.6" y="58" width="4.8" height="16" rx="2" fill="#19e3ff" fillOpacity="0.4" stroke="#19e3ff" strokeWidth="1.6" />
+      </g>
+      {[[58, 62, 38, 1], [64, 32, -24, 0.8]].map(([x, y, a, sc], i) => (
+        <g key={i} transform={`translate(${x} ${y}) rotate(${a}) scale(${sc})`}>
+          <path d="M-4 -3L-10 -22H10L4 -3Z" fill="#fff" fillOpacity="0.16" stroke="#fff" strokeWidth="1.6" strokeLinejoin="round" />
+          <path d="M-7 -12H7M-2 -3L-4 -22M2 -3L4 -22" stroke="#fff" strokeOpacity="0.7" strokeWidth="1" />
+          <circle r="4.4" fill="#ffcf4a" stroke="#fff" strokeWidth="1.2" />
+        </g>
+      ))}
+    </>
+  )
+}
+
+function Skateboard() {
+  return (
+    <>
+      <path d="M6 36Q14 36 18 44H62Q66 36 74 36" fill="none" stroke="#19e3ff" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M6 36Q14 36 18 44H62Q66 36 74 36" fill="none" stroke="#0a1620" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M22 47V54H34V47M46 47V54H58V47" fill="none" stroke="#e6fff0" {...L} />
+      <circle cx="28" cy="60" r="7" fill="#ff3da6" fillOpacity="0.35" stroke="#ff3da6" strokeWidth="2.2" />
+      <circle cx="52" cy="60" r="7" fill="#ff3da6" fillOpacity="0.35" stroke="#ff3da6" strokeWidth="2.2" />
+      <circle cx="28" cy="60" r="2" fill="#ff3da6" />
+      <circle cx="52" cy="60" r="2" fill="#ff3da6" />
+      <path d="M30 30L26 24M40 28L40 20M50 30L54 24" stroke="#ffcf4a" strokeWidth="2" strokeLinecap="round" className="twinkle" />
+    </>
+  )
+}
+
+function Camera() {
+  return (
+    <>
+      <path d="M30 28V21H50V28" fill="#0e1620" stroke="#e6fff0" {...L} />
+      <rect x="55" y="23" width="12" height="6" rx="1.5" fill="#0e1620" stroke="#e6fff0" strokeWidth="1.8" />
+      <path d="M58 23V29M61 23V29M64 23V29" stroke="#e6fff0" strokeOpacity="0.6" strokeWidth="1" />
+      <rect x="8" y="28" width="64" height="36" rx="5.5" fill="#0e1620" stroke="#e6fff0" {...L} />
+      <path d="M8 36Q24 33 24 46V64" fill="none" stroke="#e6fff0" strokeOpacity="0.5" strokeWidth="1.4" />
+      <circle cx="16" cy="26.5" r="2.6" fill="#ff3b4e" stroke="#fff" strokeWidth="1" />
+      <circle cx="46" cy="47" r="17" fill="#06090d" stroke="#19e3ff" strokeWidth="3" />
+      <circle cx="46" cy="47" r="12" fill="none" stroke="#19e3ff" strokeOpacity="0.55" strokeWidth="1.6" />
+      <circle cx="46" cy="47" r="6" fill="#19e3ff" fillOpacity="0.35" stroke="#19e3ff" strokeWidth="1.4" />
+      <path d="M40 41Q43 38 47 39" fill="none" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" opacity="0.8" />
+      <rect x="62" y="33" width="5" height="3" rx="0.8" fill="#ffcf4a" />
+    </>
+  )
+}
+
+function Books() {
+  return (
+    <>
+      <rect x="8" y="58" width="62" height="12" rx="1.5" fill="#4a1220" stroke="#ff7a8a" strokeWidth="1.8" />
+      <path d="M14 58V70M64 58V70M18 62H60M18 66H60" stroke="#ffcf4a" strokeOpacity="0.7" strokeWidth="1.2" />
+      <rect x="14" y="46" width="54" height="12" rx="1.5" fill="#12304a" stroke="#19e3ff" strokeWidth="1.8" />
+      <path d="M20 46V58M60 46V58M25 50H55" stroke="#ffcf4a" strokeOpacity="0.7" strokeWidth="1.2" />
+      <rect x="10" y="34" width="56" height="12" rx="1.5" fill="#143a1c" stroke="#3dff8b" strokeWidth="1.8" />
+      <path d="M16 34V46M58 34V46M21 40H53" stroke="#ffcf4a" strokeOpacity="0.7" strokeWidth="1.2" />
+      <g transform="rotate(-9 38 28)">
+        <rect x="16" y="20" width="46" height="12" rx="1.5" fill="#3a1a4a" stroke="#d98cff" strokeWidth="1.8" />
+        <path d="M22 20V32M56 20V32M27 26H51" stroke="#ffcf4a" strokeOpacity="0.7" strokeWidth="1.2" />
+      </g>
+      <path d="M60 32V46L58 52" fill="none" stroke="#ff3b4e" strokeWidth="2" strokeLinecap="round" />
+    </>
+  )
+}
+
+function Omega() {
+  const ticks = Array.from({ length: 36 }, (_, i) => {
+    const a = (i * 10 * Math.PI) / 180
+    const major = i % 3 === 0
+    const r1 = 19.5
+    const r2 = major ? 16.5 : 17.8
+    return <path key={i} d={`M${(40 + Math.sin(a) * r1).toFixed(1)} ${(40 - Math.cos(a) * r1).toFixed(1)}L${(40 + Math.sin(a) * r2).toFixed(1)} ${(40 - Math.cos(a) * r2).toFixed(1)}`} stroke="#fff" strokeWidth={major ? 1.4 : 0.8} strokeOpacity="0.9" />
+  })
+  return (
+    <>
+      <rect x="30" y="2" width="20" height="19" rx="3" fill="#10161c" stroke="#9aa4ae" strokeWidth="1.8" />
+      <rect x="30" y="59" width="20" height="19" rx="3" fill="#10161c" stroke="#9aa4ae" strokeWidth="1.8" />
+      <rect x="61" y="37" width="6" height="6" rx="1.2" fill="#9aa4ae" />
+      <rect x="58" y="22" width="5" height="4" rx="1" fill="#9aa4ae" transform="rotate(30 60 24)" />
+      <rect x="58" y="54" width="5" height="4" rx="1" fill="#9aa4ae" transform="rotate(-30 60 56)" />
+      <circle cx="40" cy="40" r="23" fill="#0a0d12" stroke="#d6dde3" strokeWidth="2.6" />
+      <circle cx="40" cy="40" r="20.5" fill="none" stroke="#6b7480" strokeWidth="1" />
+      {ticks}
+      <circle cx="40" cy="40" r="15" fill="#06080b" stroke="#6b7480" strokeWidth="0.8" />
+      {[[31, 40], [49, 40], [40, 49]].map(([x, y], i) => (
+        <g key={i}>
+          <circle cx={x} cy={y} r="4.6" fill="#0a0d12" stroke="#9aa4ae" strokeWidth="1" />
+          <path d={`M${x} ${y}L${x + (i === 0 ? 2 : i === 1 ? -1.5 : 0)} ${y - 3.4}`} stroke="#fff" strokeWidth="0.9" strokeLinecap="round" />
+        </g>
+      ))}
+      {[[40, 27], [27, 40], [53, 40], [40, 53]].map(([x, y], i) => (
+        <rect key={i} x={x - 0.8} y={y - 0.8} width="1.6" height="1.6" fill="#ffcf4a" />
+      ))}
+      <path d="M40 40L40 27" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" />
+      <path d="M40 40L51 34" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" />
+      <path d="M40 40L34 48" stroke="#ff3b4e" strokeWidth="1" strokeLinecap="round" />
+      <circle cx="40" cy="40" r="1.6" fill="#fff" />
+    </>
+  )
+}
+
+function Omamori() {
+  return (
+    <>
+      <path d="M34 15C27 3 53 3 46 15" fill="none" stroke="#ffcf4a" strokeWidth="2.2" strokeLinecap="round" />
+      <path d="M26 16H54V68H26Z" fill="#8a1a2a" stroke="#ffcf4a" {...L} />
+      <path d="M26 16L40 28L54 16" fill="none" stroke="#ffcf4a" strokeWidth="1.8" strokeLinejoin="round" />
+      <path d="M30 34l4 4-4 4-4-4zM50 34l4 4-4 4-4-4zM30 58l4 4-4 4-4-4zM50 58l4 4-4 4-4-4z" fill="none" stroke="#ff9ab0" strokeOpacity="0.5" strokeWidth="1" transform="translate(-1 -1) scale(0.9) translate(3 3)" />
+      <text x="40" y="44" textAnchor="middle" fontSize="13" fill="#ffcf4a" fontFamily="var(--font-pixel), serif">御</text>
+      <text x="40" y="60" textAnchor="middle" fontSize="13" fill="#ffcf4a" fontFamily="var(--font-pixel), serif">守</text>
+      <path d="M40 68V76M36 68L35 75M44 68L45 75" stroke="#ffcf4a" strokeWidth="1.8" strokeLinecap="round" />
+    </>
+  )
+}
+
+function Quest() {
+  return (
+    <>
+      <path d="M12 30Q40 4 68 30" fill="none" stroke="#e6fff0" strokeOpacity="0.6" strokeWidth="2.4" strokeDasharray="3 3" strokeLinecap="round" />
+      <path d="M6 38Q2 38 4 46M74 38Q78 38 76 46" fill="none" stroke="#e6fff0" strokeWidth="3" strokeLinecap="round" />
+      <rect x="8" y="26" width="64" height="30" rx="13" fill="#e6eef2" fillOpacity="0.14" stroke="#e6fff0" {...L} />
+      <rect x="13" y="31" width="54" height="20" rx="9" fill="#06090d" stroke="#19e3ff" strokeWidth="1.8" />
+      {[[19, 37], [61, 37], [27, 46], [53, 46]].map(([x, y], i) => (
+        <circle key={i} cx={x} cy={y} r="2.4" fill="#19e3ff" fillOpacity="0.85" />
+      ))}
+      <path d="M31 56Q40 48 49 56" fill="#0e1a2a" stroke="#e6fff0" strokeWidth="1.8" strokeLinejoin="round" />
+      <path d="M34 40Q40 36 46 40" fill="none" stroke="#19e3ff" strokeOpacity="0.5" strokeWidth="1.2" />
+    </>
+  )
+}
+
+function G1() {
+  return (
+    <>
+      <path d="M10 38L3 30M70 38L77 30" stroke="#e6fff0" strokeWidth="2.4" strokeLinecap="round" />
+      <circle cx="24" cy="42" r="15" fill="#19e3ff" fillOpacity="0.06" stroke="#e6fff0" strokeWidth="2.8" />
+      <circle cx="56" cy="42" r="15" fill="#3dff8b" fillOpacity="0.08" stroke="#e6fff0" strokeWidth="2.8" />
+      <path d="M38 38Q40 34 42 38" fill="none" stroke="#e6fff0" strokeWidth="2.4" strokeLinecap="round" />
+      <path d="M16 36Q20 30 27 31" fill="none" stroke="#fff" strokeOpacity="0.55" strokeWidth="1.6" strokeLinecap="round" />
+      <g stroke="#3dff8b" strokeWidth="1.8" strokeLinecap="round">
+        <path d="M48 36H63" />
+        <path d="M48 42H59" />
+        <path d="M48 48H62" />
+        <circle cx="64" cy="36" r="1.4" fill="#3dff8b" className="blink" />
+      </g>
+    </>
+  )
+}
+
+function Vasconcelos() {
+  return (
+    <>
+      <rect x="5" y="8" width="70" height="62" fill="#0a1620" stroke="#e6fff0" strokeWidth="1.8" />
+      <path d="M5 8L25 24L40 8L55 24L75 8M25 24H55" fill="none" stroke="#19e3ff" strokeOpacity="0.55" strokeWidth="1.2" />
+      {[[9, 26], [9, 40], [9, 54], [55, 26], [55, 40], [55, 54]].map(([x, y], i) => (
+        <g key={i}>
+          <path d={`M${x + 2} ${y - 8}V${y}M${x + 14} ${y - 8}V${y}`} stroke="#e6fff0" strokeOpacity="0.5" strokeWidth="0.9" />
+          <rect x={x} y={y} width="16" height="5" fill="#2a1a08" stroke="#ffb454" strokeWidth="1.2" />
+          {[0, 1, 2, 3, 4].map((b) => (
+            <path key={b} d={`M${x + 2 + b * 3} ${y + 0.8}V${y + 4.2}`} stroke={["#ff3b4e", "#19e3ff", "#ffcf4a", "#3dff8b", "#ff3da6"][b]} strokeWidth="1.6" />
+          ))}
+        </g>
+      ))}
+      <path d="M26 46H54M26 46L21 43L21 49Z" fill="none" stroke="#e6fff0" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      {[0, 1, 2, 3, 4, 5].map((i) => (
+        <path key={i} d={`M${30 + i * 4.4} 46Q${28 + i * 4.4} ${38 + (i < 3 ? i : 5 - i)} ${31 + i * 4.4} ${34 + Math.abs(2 - i)}`} fill="none" stroke="#e6fff0" strokeWidth="1.6" strokeLinecap="round" />
+      ))}
+      <path d="M54 46Q60 42 62 47" fill="none" stroke="#e6fff0" strokeWidth="1.8" strokeLinecap="round" />
+      <path d="M5 70H75" stroke="#e6fff0" strokeWidth="1.8" />
+    </>
+  )
+}
+
+function PartyHat() {
+  return (
+    <>
+      <ellipse cx="40" cy="62" rx="22" ry="6" fill="#0a2a3a" stroke="#19e3ff" {...L} />
+      <path d="M40 12L60 62Q40 70 20 62Z" fill="#0a2a3a" stroke="#19e3ff" {...L} />
+      <path d="M33 30L27 62M45 24L41 66M50 36L52 66" stroke="#ff3da6" strokeWidth="5" strokeLinecap="round" opacity="0.85" />
+      <path d="M36 22L54 47M32 36L58 56" stroke="#ffcf4a" strokeWidth="3" strokeLinecap="round" opacity="0.9" />
+      <circle cx="40" cy="10" r="5.5" fill="#fff" stroke="#ffcf4a" strokeWidth="1.6" />
+      <path d="M35 6l-4-3M45 6l4-3M40 4V0" stroke="#ffcf4a" strokeWidth="1.6" strokeLinecap="round" />
+    </>
+  )
+}
+
+function Scimitar() {
+  return (
+    <>
+      <path d="M26 56C28 36 44 18 68 10C60 20 58 30 56 42C48 46 36 50 26 56Z" fill="#19e3ff" fillOpacity="0.22" stroke="#19e3ff" {...L} />
+      <path d="M30 52C34 38 46 26 62 18" fill="none" stroke="#fff" strokeOpacity="0.7" strokeWidth="1.4" strokeLinecap="round" />
+      <path d="M20 48L36 60" stroke="#ffcf4a" strokeWidth="4" strokeLinecap="round" />
+      <path d="M26 56L14 72" stroke="#8a4a14" strokeWidth="5" strokeLinecap="round" />
+      <circle cx="12" cy="74" r="3.2" fill="#ffcf4a" stroke="#fff" strokeWidth="1" />
+    </>
+  )
+}
+
+function Coins() {
+  const coin = (cx: number, cy: number, i: number) => (
+    <g key={`${cx}-${i}`}>
+      <path d={`M${cx - 12} ${cy}V${cy + 4}A12 4.4 0 0 0 ${cx + 12} ${cy + 4}V${cy}`} fill="#b8860b" stroke="#ffcf4a" strokeWidth="1.6" />
+      <ellipse cx={cx} cy={cy} rx="12" ry="4.4" fill="#ffcf4a" stroke="#fff" strokeWidth="1.2" />
+    </g>
+  )
+  return (
+    <>
+      {[0, 1, 2, 3, 4].map((i) => coin(24, 64 - i * 5, i))}
+      {[0, 1, 2].map((i) => coin(52, 66 - i * 5, i))}
+      <g transform="translate(54 30)">
+        <circle r="11" fill="#ffcf4a" stroke="#fff" strokeWidth="1.6" />
+        <circle r="7.6" fill="none" stroke="#b8860b" strokeWidth="1.4" />
+        <text y="3.6" textAnchor="middle" fontSize="9" fill="#7a5200" fontFamily="var(--font-pixel), monospace">gp</text>
+      </g>
+      <path d="M22 18l2 4 4 2-4 2-2 4-2-4-4-2 4-2z" fill="#ffcf4a" className="twinkle" />
+    </>
+  )
+}
+
 /* ----------------------------------------------------------- registry etc. */
 
 export type SymbolKey =
   | "lucha" | "pinata" | "cajeta" | "pozole" | "tamales" | "tacos" | "piramide" | "azteca" | "unam"
   | "kings" | "glasgow" | "rcm" | "hall" | "kit" | "icpcb" | "icpc" | "steth" | "brain"
   | "dazaifu" | "umegae" | "taipei" | "hk"
+  | "macos" | "android" | "xlb" | "hotpot" | "badminton" | "skate" | "camera" | "books" | "omega" | "omamori" | "quest" | "g1" | "vasconcelos" | "partyhat" | "scimitar" | "coins"
 
 export const SYMBOLS: Record<SymbolKey, { label: string; caption: string; accent: string; Art: () => ReactNode }> = {
   lucha: { label: "Máscara de lucha libre", caption: "Máscara de lucha libre. Losing the mask is the ultimate defeat.", accent: "#ff3da6", Art: Lucha },
@@ -460,6 +778,22 @@ export const SYMBOLS: Record<SymbolKey, { label: string; caption: string; accent
   umegae: { label: "Umegae mochi", caption: "Umegae mochi: Dazaifu's grilled rice cake stamped with a plum blossom.", accent: "#e9d7ae", Art: Umegae },
   taipei: { label: "Taipei 101", caption: "Taipei 101.", accent: "#19e3ff", Art: Taipei101 },
   hk: { label: "Hong Kong skyline", caption: "Hong Kong skyline.", accent: "#3dff8b", Art: HongKong },
+  macos: { label: "macOS", caption: "macOS: home of my net-worth widget.", accent: "#19e3ff", Art: MacOS },
+  android: { label: "Android", caption: "Android: the other half of the net-worth widget.", accent: "#3dff8b", Art: Android },
+  xlb: { label: "小笼包", caption: "小笼包 (xiǎolóngbāo): soup dumplings.", accent: "#e0b866", Art: Xlb },
+  hotpot: { label: "火锅", caption: "火锅 (huǒguō): hotpot, with a split pot for spicy and not.", accent: "#ff6b6b", Art: Hotpot },
+  badminton: { label: "Badminton", caption: "Badminton racket and shuttlecocks.", accent: "#ff3da6", Art: Badminton },
+  skate: { label: "Skateboard", caption: "Skateboard.", accent: "#19e3ff", Art: Skateboard },
+  camera: { label: "Sony A7 IV", caption: "Sony A7 IV mirrorless camera.", accent: "#19e3ff", Art: Camera },
+  books: { label: "Books", caption: "Piles of books.", accent: "#d98cff", Art: Books },
+  omega: { label: "Omega Speedmaster", caption: "Omega Speedmaster: a mechanical chronograph.", accent: "#d6dde3", Art: Omega },
+  omamori: { label: "Omamori", caption: "お守り (omamori): a Japanese good-luck charm.", accent: "#ffcf4a", Art: Omamori },
+  quest: { label: "Meta Quest 2", caption: "Meta Quest 2 headset: where Binary Lift VR runs.", accent: "#19e3ff", Art: Quest },
+  g1: { label: "Even Realities G1", caption: "Even Realities G1 smart glasses, round frames.", accent: "#3dff8b", Art: G1 },
+  vasconcelos: { label: "Biblioteca Vasconcelos", caption: "Biblioteca Vasconcelos, Mexico City: floating bookshelves and a whale skeleton.", accent: "#19e3ff", Art: Vasconcelos },
+  partyhat: { label: "Party hat", caption: "Party hat: RuneScape's most iconic item.", accent: "#ff3da6", Art: PartyHat },
+  scimitar: { label: "Rune scimitar", caption: "Rune scimitar: a RuneScape classic.", accent: "#19e3ff", Art: Scimitar },
+  coins: { label: "Coins", caption: "Coins: RuneScape's gold pieces.", accent: "#ffcf4a", Art: Coins },
 }
 
 export function SymbolSvg({ k, className = "", title, style }: { k: SymbolKey; className?: string; title?: string; style?: React.CSSProperties }) {

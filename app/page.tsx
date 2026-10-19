@@ -44,7 +44,7 @@ export default function Home() {
             "icpcb", "bitlift", "cpp", "totoro", "ramen", "segtree", "tennis", "eye", "usaco", "java", "shinkansen", "highland",
             "typescript", "udon", "tokyotower", "git", "icpc", "angel", "crab", "yatai", "bigben", "docker", "onigiri", "k8s",
             "skate", "greatwall", "gitlab", "hanafuda", "bus", "spring", "unagi", "skytree", "angular", "bellas", "phonebox", "godot",
-            "applewatch", "harbour", "rtx", "michelin", "vans", "goat", "nhm", "penguin", "printer", "badminton", "pearl", "hamster", "djihq", "anki",
+            "applewatch", "harbour", "rtx", "michelin", "vans", "goat", "nhm", "penguin", "printer", "badminton", "pearl", "hamster", "scuba", "djihq", "anki", "reef",
           ]}>
           <StatsViz />
         </Section>

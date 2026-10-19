@@ -963,27 +963,43 @@ function BerlinPhil() {
 /* ---------------------------------- drinks, statues, gadgets, pets, logos */
 
 function Yoli() {
+  // Clear PET bottle, green screw cap, green label with the yellow script word, two black warning octagons.
+  const oct = (cx: number, cy: number, r: number) => {
+    const pts = Array.from({ length: 8 }, (_, k) => {
+      const a = ((22.5 + k * 45) * Math.PI) / 180
+      return `${(cx + Math.cos(a) * r).toFixed(1)},${(cy + Math.sin(a) * r).toFixed(1)}`
+    }).join(" ")
+    return <polygon points={pts} fill="#06090d" stroke="#e6fff0" strokeWidth="0.9" />
+  }
   return (
     <>
       <defs>
-        <clipPath id="yoli-body">
-          <path d="M35 24C35 28 30 30 30 36V68Q30 74 36 74H44Q50 74 50 68V36C50 30 45 28 45 24Z" />
+        <clipPath id="yoli-pet">
+          <path d="M35 14C35 20 28 22 27 30L26 66Q26 72 31 74H49Q54 72 54 66L53 30C52 22 45 20 45 14Z" />
         </clipPath>
       </defs>
-      <path d="M34 4H46L45 9H35Z" fill="#ffcf4a" stroke="#fff" strokeWidth="1.2" strokeLinejoin="round" />
-      <path d="M36 9H44V24C44 28 50 30 50 36V68Q50 74 44 74H36Q30 74 30 68V36C30 30 36 28 36 24Z" fill="#e6fff0" fillOpacity="0.1" stroke="#e6fff0" {...L} />
-      <g clipPath="url(#yoli-body)">
-        <rect x="28" y="30" width="24" height="46" fill="#ff8a1f" fillOpacity="0.55" />
-        <path d="M28 30Q34 27 40 30T52 30" fill="none" stroke="#ffd08a" strokeWidth="1.6" />
-      </g>
-      <rect x="30" y="42" width="20" height="16" fill="#0e1a2a" stroke="#ffcf4a" strokeWidth="1.4" />
-      <path d="M33 54Q40 46 47 54" fill="none" stroke="#3dff8b" strokeWidth="2.4" strokeLinecap="round" />
-      <circle cx="40" cy="49" r="3.4" fill="#ff3da6" stroke="#fff" strokeWidth="0.8" />
-      <path d="M40 46V44M38 45l2-1.4 2 1.4" stroke="#3dff8b" strokeWidth="1.2" strokeLinecap="round" />
-      {[[36, 66], [43, 63], [39, 71], [45, 70]].map(([x, y], i) => (
-        <circle key={i} cx={x} cy={y} r="1.3" fill="#fff" fillOpacity="0.7" className="twinkle" style={{ animationDelay: `${i * 0.4}s` }} />
+      <rect x="33.5" y="3" width="13" height="9" rx="1.6" fill="#2fa84a" stroke="#7dff9a" strokeWidth="1.6" />
+      {[36, 39, 42, 45].map((x) => (
+        <path key={x} d={`M${x} 4.4V10.6`} stroke="#0e5a22" strokeWidth="1" />
       ))}
-      <path d="M26 74H54" stroke="#e6fff0" strokeWidth="1.6" strokeLinecap="round" />
+      <rect x="34.4" y="12" width="11.2" height="2.6" rx="1" fill="#e6fff0" fillOpacity="0.2" stroke="#e6fff0" strokeWidth="1.2" />
+      <path d="M35 14.6C35 20 28 22 27 30L26 66Q26 72 31 74H49Q54 72 54 66L53 30C52 22 45 20 45 14.6Z" fill="#d8ffe6" fillOpacity="0.22" stroke="#e6fff0" {...L} />
+      <g clipPath="url(#yoli-pet)">
+        <rect x="24" y="26" width="32" height="50" fill="#c8ffd8" fillOpacity="0.12" />
+        <path d="M27 40H53V62H27Z" fill="#2fb34e" />
+        <path d="M27 60L36 40H42L33 62ZM38 62L47 40H52L43 62Z" fill="#8dff9a" fillOpacity="0.45" />
+        <path d="M27 40H53V43.4H27ZM27 58.6H53V62H27Z" fill="#ffcf4a" />
+      </g>
+      <text x="40" y="54.6" textAnchor="middle" fontSize="9" fontStyle="italic" fontWeight="700" fill="#ffe14a" stroke="#0e5a22" strokeWidth="0.5" fontFamily="var(--font-code), monospace">yoli</text>
+      {oct(34.4, 33, 3.8)}
+      {oct(43.2, 33, 3.8)}
+      <path d="M28 25Q40 21 52 25" fill="none" stroke="#e6fff0" strokeOpacity="0.4" strokeWidth="1" />
+      <path d="M30 64H50" stroke="#e6fff0" strokeOpacity="0.3" strokeWidth="1" />
+      <path d="M28 70Q30 74 33 72M37 73V70M43 73V70M52 70Q50 74 47 72" fill="none" stroke="#e6fff0" strokeOpacity="0.55" strokeWidth="1.2" strokeLinecap="round" />
+      {[[31, 67], [48, 67], [35, 69], [45, 69]].map(([x, y], i) => (
+        <circle key={i} cx={x} cy={y} r="0.9" fill="#fff" fillOpacity="0.7" />
+      ))}
+      <path d="M29 26V36M29 46V62" stroke="#fff" strokeOpacity="0.35" strokeWidth="1.6" strokeLinecap="round" />
     </>
   )
 }
@@ -1221,6 +1237,62 @@ function Hamster() {
   )
 }
 
+function ScubaGear() {
+  return (
+    <>
+      <path d="M58 14C58 3 26 2 22 22" fill="none" stroke="#ffcf4a" strokeWidth="2.4" strokeLinecap="round" />
+      <rect x="54" y="12" width="8" height="8" rx="2" fill="#14181e" stroke="#e6fff0" strokeWidth="1.6" />
+      <circle cx="58" cy="9" r="2.6" fill="#ff3b4e" stroke="#fff" strokeWidth="1" />
+      <rect x="49" y="20" width="18" height="52" rx="9" fill="#19e3ff" fillOpacity="0.15" stroke="#19e3ff" {...L} />
+      <path d="M49 38H67M49 43H67" stroke="#ffcf4a" strokeWidth="2" />
+      <path d="M53 26V34M53 48V66" stroke="#fff" strokeOpacity="0.35" strokeWidth="2" strokeLinecap="round" />
+      <circle cx="22" cy="26" r="5" fill="#14181e" stroke="#e6fff0" strokeWidth="1.8" />
+      <path d="M22 31V36" stroke="#e6fff0" strokeWidth="3" strokeLinecap="round" />
+      <circle cx="72" cy="30" r="5" fill="#06090d" stroke="#e6fff0" strokeWidth="1.6" />
+      <path d="M72 30L74.6 27.6" stroke="#ff3b4e" strokeWidth="1.4" strokeLinecap="round" />
+      <path d="M66 26Q70 22 72 25" fill="none" stroke="#ffcf4a" strokeWidth="1.6" strokeLinecap="round" />
+      <path d="M10 60C8 52 14 46 24 46H34C42 46 46 52 44 60C43 66 38 68 34 66L30 62C28 60 24 60 22 62L18 66C14 68 11 66 10 60Z" fill="#12303a" stroke="#e6fff0" {...L} />
+      <path d="M13 54C16 50 22 50 26 53M34 53C38 50 42 52 42 56" fill="none" stroke="#19e3ff" strokeWidth="1.6" strokeLinecap="round" />
+      <rect x="14" y="52" width="10" height="7" rx="3" fill="#19e3ff" fillOpacity="0.35" />
+      <rect x="30" y="52" width="10" height="7" rx="3" fill="#19e3ff" fillOpacity="0.35" />
+      <path d="M10 56C4 56 3 62 6 66M44 56C48 54 50 58 50 62" fill="none" stroke="#e6fff0" strokeWidth="1.6" strokeLinecap="round" />
+      <path d="M8 52V34C8 30 12 30 12 34V50" fill="none" stroke="#ffcf4a" strokeWidth="3" strokeLinecap="round" />
+      <path d="M9.4 31H10.8" stroke="#ff3b4e" strokeWidth="3.4" strokeLinecap="round" />
+    </>
+  )
+}
+
+function GreatBarrierReef() {
+  return (
+    <>
+      <path d="M2 8C8 5 12 11 18 8C24 5 28 11 34 8C40 5 44 11 50 8C56 5 60 11 66 8C72 6 76 10 78 8" fill="none" stroke="#19e3ff" strokeWidth="1.8" strokeLinecap="round" />
+      <path d="M20 10L26 30M36 10L38 26M54 10L50 28M68 10L62 30" stroke="#19e3ff" strokeOpacity="0.25" strokeWidth="3" strokeLinecap="round" />
+      <path d="M2 72C14 66 26 70 40 68C54 66 66 70 78 66V76H2Z" fill="#3a2a1a" fillOpacity="0.55" stroke="#c8a46a" strokeWidth="1.6" strokeLinejoin="round" />
+      <path d="M14 70V58M14 64L8 56M14 60L20 52M8 56L6 48M20 52L24 46M20 52L17 45" fill="none" stroke="#ff3da6" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M40 70V60M40 64L34 58M40 62L46 56" fill="none" stroke="#b455d6" strokeWidth="3" strokeLinecap="round" />
+      <path d="M52 70A12 11 0 0 1 76 70Z" fill="#ffcf4a" fillOpacity="0.3" stroke="#ffcf4a" {...L} />
+      <path d="M56 66C60 60 64 66 68 62M58 70C62 66 66 70 72 66" fill="none" stroke="#ffcf4a" strokeWidth="1.4" strokeLinecap="round" />
+      <path d="M28 70C26 62 30 58 32 54C34 58 38 62 36 70Z" fill="#ff7a1a" fillOpacity="0.4" stroke="#ff7a1a" strokeWidth="1.6" strokeLinejoin="round" />
+      <g transform="translate(34 34)">
+        <ellipse cx="0" cy="0" rx="11" ry="7" fill="#ff7a1a" fillOpacity="0.6" stroke="#ff9f4a" strokeWidth="1.8" />
+        <path d="M-3.5 -7V7M3 -6.6V6.6" stroke="#fff" strokeWidth="2.4" />
+        <path d="M11 0L18 -6V6Z" fill="#ff7a1a" stroke="#ff9f4a" strokeWidth="1.4" strokeLinejoin="round" />
+        <path d="M-4 -7Q0 -12 5 -6" fill="none" stroke="#ff9f4a" strokeWidth="1.6" strokeLinecap="round" />
+        <circle cx="-6.4" cy="-1.2" r="1.5" fill="#14100c" />
+        <circle cx="-6" cy="-1.6" r="0.5" fill="#fff" />
+      </g>
+      <g transform="translate(62 26) scale(0.75)">
+        <path d="M-9 0C-4 -6 6 -6 10 0C6 6 -4 6 -9 0Z" fill="#4d9cf0" fillOpacity="0.6" stroke="#4d9cf0" strokeWidth="1.8" />
+        <path d="M10 0L16 -5V5Z" fill="#ffcf4a" stroke="#ffcf4a" strokeWidth="1" strokeLinejoin="round" />
+        <circle cx="-4.6" cy="-0.6" r="1.1" fill="#14100c" />
+      </g>
+      {[[20, 36], [24, 28], [48, 44], [50, 36], [46, 20]].map(([x, y], i) => (
+        <circle key={i} cx={x} cy={y} r={i % 2 ? 1.6 : 2.2} fill="none" stroke="#e6fff0" strokeOpacity="0.8" strokeWidth="1" className="twinkle" style={{ animationDelay: `${i * 0.45}s` }} />
+      ))}
+    </>
+  )
+}
+
 /* ------------------------------------------------------------- registry */
 
 export type MoreKey =
@@ -1228,6 +1300,7 @@ export type MoreKey =
   | "bigben" | "bus" | "phonebox" | "shinkansen" | "yatai" | "hanafuda" | "highland" | "goat" | "usaco" | "totoro" | "penguin"
   | "michelin" | "tennis" | "applewatch" | "vans" | "rtx" | "printer" | "cpp" | "java" | "typescript" | "git" | "crab" | "godot"
   | "angular" | "spring" | "docker" | "k8s" | "gitlab" | "bitlift" | "segtree"
+  | "scuba" | "reef"
   | "yoli" | "nata" | "irnbru" | "wellington" | "steamdeck" | "ubuntu" | "mindstorms" | "drone" | "pearl" | "djihq" | "keyboard" | "hamster" | "anki"
   | "tartiflette" | "baguette" | "casamusica" | "saobento" | "lello" | "surf" | "southbank" | "punts" | "mathbridge" | "gown" | "steinway" | "yamaha" | "berlinphil"
 
@@ -1273,7 +1346,9 @@ export const MORE: Record<MoreKey, { label: string; caption: string; accent: str
   k8s: { label: "Kubernetes", caption: "Kubernetes.", accent: "#4d8dff", Art: Kubernetes },
   gitlab: { label: "GitLab", caption: "GitLab.", accent: "#fc7a30", Art: Gitlab },
   bitlift: { label: "Binary lifting", caption: "Binary lifting: jump by powers of two.", accent: "#ff3da6", Art: BinaryLifting },
-  yoli: { label: "Refresco Yoli", caption: "Refresco Yoli: a Mexican fruit soda.", accent: "#ff8a1f", Art: Yoli },
+  scuba: { label: "Scuba diving gear", caption: "Scuba diving gear: mask, snorkel, tank and regulator.", accent: "#19e3ff", Art: ScubaGear },
+  reef: { label: "Great Barrier Reef", caption: "The Great Barrier Reef.", accent: "#ff3da6", Art: GreatBarrierReef },
+  yoli: { label: "Refresco Yoli", caption: "Refresco Yoli: a Mexican soda, lemon flavour.", accent: "#ff8a1f", Art: Yoli },
   nata: { label: "Pastel de nata", caption: "Pastel de nata: Portuguese custard tart.", accent: "#f6d36a", Art: PastelNata },
   irnbru: { label: "Irn-Bru", caption: "Irn-Bru: Scotland's other national drink.", accent: "#ff7a1a", Art: IrnBru },
   wellington: { label: "Duke of Wellington", caption: "The Duke of Wellington statue in Glasgow, traffic cone included.", accent: "#ff7a1a", Art: Wellington },

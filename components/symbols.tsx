@@ -172,24 +172,57 @@ function UnamLibrary() {
 /* ------------------------------------------------- UK, music, medicine, CP */
 
 function KingsCollege() {
+  const stone = "#e6dcc0"
   return (
     <>
-      {[10, 70].map((x) => (
+      {/* Lawn */}
+      <path d="M0 66H80" stroke="#3dff8b" strokeOpacity="0.6" strokeWidth="2" strokeLinecap="round" />
+      <path d="M6 70H30M40 70H74M14 74H56" stroke="#3dff8b" strokeOpacity="0.3" strokeWidth="1.4" strokeLinecap="round" />
+
+      {/* Gibbs Building on the left: long, three storeys, chimneys along the roof */}
+      <rect x="1" y="38" width="31" height="28" fill="#2a2418" stroke={stone} strokeWidth="1.6" />
+      <path d="M1 38H32" stroke={stone} strokeWidth="2.4" />
+      {[5, 11, 24, 29].map((x) => (
+        <rect key={x} x={x} y="32" width="3" height="6" fill="#2a2418" stroke={stone} strokeWidth="1.2" />
+      ))}
+      <path d="M13 38L18 32L23 38" fill="#2a2418" stroke={stone} strokeWidth="1.4" strokeLinejoin="round" />
+      {[0, 1, 2].map((r) =>
+        Array.from({ length: 8 }, (_, c) => (
+          <rect key={`${r}${c}`} x={3.4 + c * 3.5} y={41.5 + r * 7.4} width="2" height="3.8" fill="#ffcf4a" fillOpacity={(r + c) % 3 === 0 ? 0.55 : 0.3} stroke={stone} strokeWidth="0.5" />
+        )),
+      )}
+      <rect x="15.6" y="58" width="4.8" height="8" fill="#12100a" stroke={stone} strokeWidth="1" />
+
+      {/* Chapel nave on the right: buttresses, tall windows, a row of pinnacles */}
+      <rect x="54" y="34" width="24" height="32" fill="#2a2418" stroke={stone} strokeWidth="1.6" />
+      <path d="M54 34H78" stroke={stone} strokeWidth="2.4" />
+      {[56, 61, 66, 71, 76].map((x) => (
         <g key={x}>
-          <rect x={x - 5} y="22" width="10" height="38" fill="#2a2618" stroke="#e6dcc0" strokeWidth="1.8" />
-          <polygon points={`${x - 5},22 ${x + 5},22 ${x},8`} fill="#2a2618" stroke="#e6dcc0" strokeWidth="1.8" strokeLinejoin="round" />
-          <path d={`M${x} 8V4M${x - 2} 6H${x + 2}`} stroke="#ffcf4a" strokeWidth="1.2" strokeLinecap="round" />
+          <path d={`M${x} 34L${x + 1} 29L${x + 2} 34`} fill="#2a2418" stroke={stone} strokeWidth="1.1" strokeLinejoin="round" />
+          <path d={`M${x + 0.5} 34V66`} stroke={stone} strokeOpacity="0.5" strokeWidth="1" />
         </g>
       ))}
-      <rect x="15" y="32" width="50" height="28" fill="#2a2618" stroke="#e6dcc0" strokeWidth="1.8" />
-      <path d="M15 32H65" stroke="#e6dcc0" strokeWidth="3" />
-      {Array.from({ length: 7 }, (_, i) => (
-        <path key={i} d={`M${19 + i * 6.3} 58V42A2.4 4 0 0 1 ${24 + i * 6.3} 42V58Z`} fill="#19e3ff" fillOpacity="0.35" stroke="#e6dcc0" strokeWidth="1.2" />
+      {[57, 62, 67, 72].map((x) => (
+        <path key={x} d={`M${x} 56V44A2 3.4 0 0 1 ${x + 4} 44V56Z`} fill="#19e3ff" fillOpacity="0.35" stroke={stone} strokeWidth="1" />
       ))}
-      {[17, 30, 43, 56].map((x) => (
-        <path key={x} d={`M${x} 32L${x + 1.5} 28L${x + 3} 32`} fill="none" stroke="#e6dcc0" strokeWidth="1.4" />
+      <rect x="71" y="22" width="7" height="12" fill="#2a2418" stroke={stone} strokeWidth="1.4" />
+      <path d="M70 22L74.5 14L79 22Z" fill="#2a2418" stroke={stone} strokeWidth="1.4" strokeLinejoin="round" />
+      <path d="M74.5 14V10" stroke="#ffcf4a" strokeWidth="1.4" strokeLinecap="round" />
+
+      {/* West front: two tall octagonal turrets either side of the great window */}
+      <rect x="35" y="14" width="19" height="52" fill="#2a2418" stroke={stone} strokeWidth="1.8" />
+      {[35, 49].map((x) => (
+        <g key={x}>
+          <rect x={x} y="14" width="5" height="52" fill="#3a3220" stroke={stone} strokeWidth="1.6" />
+          <path d={`M${x - 1} 14L${x + 2.5} 4L${x + 6} 14Z`} fill="#2a2418" stroke={stone} strokeWidth="1.6" strokeLinejoin="round" />
+          <path d={`M${x + 2.5} 4V1M${x + 1} 2.4H${x + 4}`} stroke="#ffcf4a" strokeWidth="1.2" strokeLinecap="round" />
+          <path d={`M${x + 2.5} 18V30M${x + 2.5} 36V44`} stroke={stone} strokeOpacity="0.5" strokeWidth="1" />
+        </g>
       ))}
-      <path d="M8 60H72M12 66H68" stroke="#e6dcc0" strokeWidth="1.6" strokeLinecap="round" opacity="0.7" />
+      <path d="M40 20H49M40 17L42 20L44 17L46 20L48 17" fill="none" stroke={stone} strokeWidth="1.2" strokeLinejoin="round" />
+      <path d="M40.6 54V32A3.9 8 0 0 1 48.4 32V54Z" fill="#19e3ff" fillOpacity="0.4" stroke={stone} strokeWidth="1.6" />
+      <path d="M44.5 24V54M40.6 36H48.4M40.6 44H48.4" stroke={stone} strokeOpacity="0.6" strokeWidth="1" />
+      <path d="M42.6 66V58A1.9 2.6 0 0 1 46.4 58V66Z" fill="#12100a" stroke={stone} strokeWidth="1.2" />
     </>
   )
 }

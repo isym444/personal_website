@@ -129,3 +129,23 @@ export const languages = [
   { name: "Português", level: "CIPLE" },
   { name: "中文", level: "HSK 3" },
 ]
+
+export const musicCredentials = {
+  school: "Royal College of Music Junior Department",
+  note: "Attended the Royal College of Music Junior Department.",
+  venues: ["Royal Albert Hall", "Wigmore Hall"],
+}
+
+export type Repertoire = { instrument: "Piano" | "Violin"; composer: string; works: string[]; accent: string }
+
+// Favourite repertoire played.
+export const repertoire: Repertoire[] = [
+  { instrument: "Piano", composer: "Chopin", works: ["Études (selection)", "Piano Concerto No. 1 (1st movement)", "Grande Polonaise Brillante"], accent: "var(--magenta)" },
+  { instrument: "Piano", composer: "Liszt", works: ["Mephisto Waltz No. 1", "Petrarch Sonnets (selection)", "Faust Waltz"], accent: "var(--cyan)" },
+  { instrument: "Piano", composer: "Rachmaninov", works: ["Piano Concerto No. 2 (1st movement)", "Prelude Op. 23 No. 5"], accent: "var(--gold)" },
+  { instrument: "Piano", composer: "Schumann", works: ["Abegg Variations"], accent: "var(--phosphor)" },
+  { instrument: "Piano", composer: "Bach", works: ["Partita No. 2"], accent: "var(--ink)" },
+  { instrument: "Violin", composer: "Wieniawski", works: ["Scherzo-Tarantelle"], accent: "var(--gold)" },
+  { instrument: "Violin", composer: "Paganini / Kreisler", works: ["La Campanella"], accent: "var(--magenta)" },
+  { instrument: "Violin", composer: "Violin concertos", works: ["Mendelssohn", "Bruch", "Saint-Saëns No. 3"], accent: "var(--cyan)" },
+]

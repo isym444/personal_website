@@ -71,19 +71,53 @@ export function Hero() {
       !window.matchMedia("(pointer: fine)").matches
     )
       return;
-    const onMove = (e: MouseEvent) => {
-      const r = el.getBoundingClientRect();
-      el.style.setProperty(
-        "--mx",
-        String(((e.clientX - r.left) / r.width - 0.5) * 2),
-      );
-      el.style.setProperty(
-        "--my",
-        String(((e.clientY - r.top) / r.height - 0.5) * 2),
-      );
+    // Follow the pointer only while it is over the hero, clamped to -1..1 and batched to one update per frame.
+    // While the page is scrolling the browser fires synthetic mouse moves against a moving hero; reading those
+    // made the mascots jump up and down, so pointer moves are ignored until scrolling has settled.
+    let raf = 0;
+    let nx = 0;
+    let ny = 0;
+    let scrolling = false;
+    let settle: ReturnType<typeof setTimeout>;
+    const apply = () => {
+      raf = 0;
+      el.style.setProperty("--mx", nx.toFixed(3));
+      el.style.setProperty("--my", ny.toFixed(3));
     };
-    window.addEventListener("mousemove", onMove);
-    return () => window.removeEventListener("mousemove", onMove);
+    const schedule = () => {
+      if (!raf) raf = requestAnimationFrame(apply);
+    };
+    const clamp = (v: number) => Math.max(-1, Math.min(1, v));
+    const onMove = (e: PointerEvent) => {
+      if (scrolling || e.pointerType !== "mouse") return;
+      const r = el.getBoundingClientRect();
+      nx = clamp(((e.clientX - r.left) / r.width - 0.5) * 2);
+      ny = clamp(((e.clientY - r.top) / r.height - 0.5) * 2);
+      schedule();
+    };
+    const recentre = () => {
+      nx = 0;
+      ny = 0;
+      schedule();
+    };
+    const onScroll = () => {
+      scrolling = true;
+      clearTimeout(settle);
+      settle = setTimeout(() => {
+        scrolling = false;
+      }, 150);
+      recentre();
+    };
+    el.addEventListener("pointermove", onMove);
+    el.addEventListener("pointerleave", recentre);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      el.removeEventListener("pointermove", onMove);
+      el.removeEventListener("pointerleave", recentre);
+      window.removeEventListener("scroll", onScroll);
+      clearTimeout(settle);
+      cancelAnimationFrame(raf);
+    };
   }, []);
 
   // Depth: how many pixels each mascot shifts with the pointer.

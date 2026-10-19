@@ -1,6 +1,6 @@
 import Image from "next/image"
 import { LiveStats } from "@/components/live-stats"
-import { about, experience, highlights, languages, moreProjects, profile, projects, tech } from "@/lib/content"
+import { about, experience, highlights, hobbies, languages, moreProjects, profile, projects, tech } from "@/lib/content"
 
 export const runtime = "edge"
 
@@ -102,6 +102,10 @@ export default function Home() {
                   </span>
                 ))}
               </dd>
+            </div>
+            <div className="grid grid-cols-[7.5rem_1fr] gap-x-4">
+              <dt className="text-muted">Hobbies</dt>
+              <dd>{hobbies}</dd>
             </div>
           </dl>
         </Section>

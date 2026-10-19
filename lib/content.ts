@@ -11,22 +11,26 @@ export const profile = {
 }
 
 export const about = [
-  "I'm a full-stack software engineer on the legal technology team at Barclays in Glasgow, building contract management, regulatory review and automated drafting systems. I'm also on track for a first in BSc Software Engineering at the University of Glasgow, with As in all courses, on the theoretical computer science track.",
-  "Before software I worked as a doctor in the NHS at St Thomas' and Guy's in London, after graduating in Medicine from the University of Cambridge. I now build things where those two worlds meet, and I compete in algorithmic programming in my spare time.",
+  "I'm a full-stack software engineer on the legal technology team at Barclays in Glasgow.",
+  "Before software I worked as a doctor in the NHS (St Thomas' and Guy's, London) after graduating in Medicine from the University of Cambridge.",
+  "I compete in algorithmic programming contests in my spare time.",
+  "Born in Mexico, raised in the UK.",
 ]
+
+export const hobbies = "Languages, Classical Music"
 
 export const experience = [
   {
     role: "Software Engineer",
     org: "Barclays",
     years: "2023 to now",
-    text: "Full-stack on a legal tech team: contract management, triage and review of laws, rules and regulations, an automated first-draft contract generator and reference-data synchronisation. Angular, Spring Boot, Kafka, Kubernetes.",
+    text: "Full-stack on a legal tech team: Angular, Spring Boot, Kafka, Kubernetes.",
   },
   {
     role: "Medical Doctor",
     org: "National Health Service",
     years: "2021 to 2023",
-    text: "Cardiology, general surgery, geriatrics, internal medicine, GP and haematology at St Thomas' and Guy's Hospitals, London.",
+    text: "Cardiology, general surgery, geriatrics, internal medicine, GP and haematology. Worked at world-leading St Thomas' and Guy's Hospitals, London.",
   },
 ]
 
@@ -35,8 +39,6 @@ export const tech = {
   also: [
     "Python / FastAPI",
     "C++",
-    "Kotlin",
-    "Swift",
     "Postgres / Supabase",
     "Godot",
     "Unity",

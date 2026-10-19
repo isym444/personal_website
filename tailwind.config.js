@@ -11,7 +11,15 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["var(--font-geist-sans)", ...fontFamily.sans],
+        mono: ["var(--font-geist-mono)", ...fontFamily.mono],
+        serif: ["var(--font-serif)", "Georgia", ...fontFamily.serif],
+      },
       colors: {
+        muted: "var(--muted)",
+        surface: "var(--surface)",
+        brand: "var(--brand)",
         background: "var(--background)",
         foreground: "var(--foreground)",
         card: "var(--card)",

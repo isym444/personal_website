@@ -24,6 +24,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         {/* The page is already dark: stop Dark Reader from re-theming it (and from injecting attributes React then flags as a hydration mismatch). */}
         <meta name="darkreader-lock" />
+        {/* Reloading should start at the top, not where the browser last left the page (or at a #section). */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{history.scrollRestoration="manual";var n=performance.getEntriesByType("navigation")[0];if(n&&n.type==="reload"&&location.hash){history.replaceState(null,"",location.pathname+location.search)}}catch(e){}`,
+          }}
+        />
         {/* DotGothic16 ships Japanese glyphs as unicode-range slices, which next/font cannot subset, so load the Google CSS directly. */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

@@ -20,14 +20,16 @@ export const viewport: Viewport = { themeColor: "#020906", colorScheme: "dark" }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`dark ${code.variable}`}>
+    <html lang="en" className={`dark ${code.variable}`} suppressHydrationWarning>
       <head>
+        {/* The page is already dark: stop Dark Reader from re-theming it (and from injecting attributes React then flags as a hydration mismatch). */}
+        <meta name="darkreader-lock" />
         {/* DotGothic16 ships Japanese glyphs as unicode-range slices, which next/font cannot subset, so load the Google CSS directly. */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" />
       </head>
-      <body>{children}</body>
+      <body suppressHydrationWarning>{children}</body>
     </html>
   )
 }

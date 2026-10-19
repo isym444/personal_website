@@ -525,25 +525,35 @@ function AppleWatch() {
 }
 
 function Vans() {
+  // Classic slip-on in side view, toe to the right: cream heel quarter, checkerboard vamp, black collar, white sole.
+  const upper = "M5 34C5 29 11 28 16 31C22 35 28 39 36 37C42 35.5 47 31.5 55 32C67 33 75 40 77 51L4 51Z"
   return (
     <>
       <defs>
         <clipPath id="vans-upper">
-          <path d="M8 54C8 44 12 40 20 40L40 34C48 32 60 36 68 46L72 54Z" />
+          <path d={upper} />
         </clipPath>
       </defs>
+      <ellipse cx="42" cy="66" rx="37" ry="3" fill="#000" opacity="0.45" />
       <g clipPath="url(#vans-upper)">
-        <rect x="4" y="28" width="72" height="30" fill="#f6f6f6" />
-        {Array.from({ length: 6 }, (_, r) =>
-          Array.from({ length: 13 }, (_, c) => ((r + c) % 2 === 0 ? <rect key={`${r}${c}`} x={4 + c * 6} y={28 + r * 5.5} width="6" height="5.5" fill="#14181e" /> : null)),
-        )}
+        <rect x="0" y="20" width="84" height="40" fill="#f1e8cf" />
+        <g transform="rotate(-6 50 42)">
+          {Array.from({ length: 6 }, (_, r) =>
+            Array.from({ length: 10 }, (_, c) => (
+              <rect key={`${r}${c}`} x={20 + c * 5.8} y={26 + r * 5.8} width="5.8" height="5.8" fill={(r + c) % 2 === 0 ? "#14181e" : "#f6f1e0"} />
+            )),
+          )}
+        </g>
+        <path d="M0 20H44L20 60H0Z" fill="#f1e8cf" />
       </g>
-      <path d="M8 54C8 44 12 40 20 40L40 34C48 32 60 36 68 46L72 54Z" fill="none" stroke="#e6fff0" {...L} />
-      <path d="M24 40Q36 46 32 54" fill="none" stroke="#e6fff0" strokeWidth="1.6" />
-      <path d="M36 38Q44 44 42 52M44 36Q52 42 50 50" fill="none" stroke="#14181e" strokeWidth="2" strokeLinecap="round" />
-      <rect x="4" y="54" width="72" height="10" rx="5" fill="#f6f6f6" stroke="#e6fff0" strokeWidth="2" />
-      <path d="M8 59H72" stroke="#c8102e" strokeWidth="2.2" />
-      <path d="M8 64C10 66 70 66 72 64" stroke="#e6fff0" strokeOpacity="0.4" strokeWidth="1.4" fill="none" />
+      <path d="M6 32C6 29 11 28 16 31C22 35 28 39 36 37C42 35.5 46 32.5 50 32" fill="none" stroke="#14181e" strokeWidth="3.8" strokeLinecap="round" />
+      <path d="M6 32C6 29 11 28 16 31C22 35 28 39 36 37C42 35.5 46 32.5 50 32" fill="none" stroke="#e6fff0" strokeWidth="1" strokeLinecap="round" opacity="0.75" />
+      <rect x="21" y="35.5" width="8" height="3" rx="0.8" fill="#fff" stroke="#14181e" strokeWidth="0.9" transform="rotate(32 25 37)" />
+      <path d={upper} fill="none" stroke="#e6fff0" strokeWidth="1.8" strokeLinejoin="round" />
+      <path d="M62 51C66 47 72 46.5 76.5 49.5" fill="none" stroke="#14181e" strokeWidth="1.4" strokeLinecap="round" />
+      <path d="M3 51H78C80.5 56 77 61 70 61H10C4 61 1.5 57 3 51Z" fill="#f6f6f6" stroke="#e6fff0" strokeWidth="1.8" strokeLinejoin="round" />
+      <path d="M4 54.2H78" stroke="#14181e" strokeWidth="1.5" strokeLinecap="round" />
+      <rect x="4.6" y="55.6" width="6.4" height="3.2" rx="0.8" fill="#c8102e" />
     </>
   )
 }

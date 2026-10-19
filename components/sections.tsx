@@ -191,6 +191,8 @@ export function Footer() {
             <a className="link" href={profile.atcoder} target="_blank" rel="noopener noreferrer">AtCoder</a>
             {" / "}
             <a className="link" href={profile.codeforces} target="_blank" rel="noopener noreferrer">Codeforces</a>
+            {" / "}
+            <a className="link" href={profile.resume} download="Ian-Samir-Yep-Manzano-CV.pdf">Resume</a>
           </p>
           <p className="mt-2 text-xs text-muted">
             {new Date().getFullYear()} {profile.name}. Psst: try <kbd className="border border-dim px-1 text-phosphor">↑ ↑ ↓ ↓ ← → ← → B A</kbd>

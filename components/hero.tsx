@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, Download } from "lucide-react";
 import { Arch, Daruma, Lantern, Oden, Sushi, Torii } from "@/components/art";
 import { Decrypt } from "@/components/decrypt";
 import { profile } from "@/lib/content";
@@ -185,6 +185,14 @@ export function Hero() {
                 className="border border-magenta/60 px-4 py-2 text-magenta transition-all hover:bg-magenta hover:text-void hover:shadow-[0_0_24px_var(--magenta)]"
               >
                 atcoder
+              </a>
+              <a
+                href={profile.resume}
+                download="Ian-Samir-Yep-Manzano-CV.pdf"
+                className="inline-flex items-center gap-2 border border-gold/60 px-4 py-2 text-gold transition-all hover:bg-gold hover:text-void hover:shadow-[0_0_24px_var(--gold)]"
+              >
+                <Download className="h-4 w-4" aria-hidden />
+                resume
               </a>
             </div>
           </div>

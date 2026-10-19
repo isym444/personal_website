@@ -9,6 +9,7 @@ export const profile = {
   linkedin: "https://www.linkedin.com/in/ian-samir-yep-manzano-5376107b",
   atcoder: "https://atcoder.jp/users/isym444",
   codeforces: "https://codeforces.com/profile/isym444",
+  resume: "/Ian-Samir-Yep-Manzano-CV.pdf",
 };
 
 export const about = [

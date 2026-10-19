@@ -5,7 +5,6 @@ import { MatrixRain } from "@/components/matrix-rain"
 import { Music } from "@/components/music"
 import { Neofetch } from "@/components/neofetch"
 import { PianoNav } from "@/components/piano"
-import { Shelf } from "@/components/souvenirs"
 import { Experience, Footer, Greetings, Highlights, Projects, Section } from "@/components/sections"
 import { StatsViz } from "@/components/stats-viz"
 import { PapelPicado } from "@/components/symbols"
@@ -26,26 +25,23 @@ export default function Home() {
           <Neofetch />
           <Greetings />
         </Section>
-        <Section id="experience" kanji="経歴" title="Experience" symbols={["steth", "glasgow", "brain", "kit"]}>
+        <Section id="experience" kanji="経歴" title="Experience" symbols={["steth", "glasgow", "brain", "kit", "omega"]}>
           <Experience />
+        </Section>
+        <Section id="highlights" kanji="実績" title="Highlights" symbols={["omamori", "books", "partyhat", "scimitar", "coins"]}>
+          <Highlights />
         </Section>
         <Section id="projects" kanji="作品" title="Projects" symbols={["macos", "android", "quest", "g1"]}>
           <Projects />
         </Section>
-        <Section id="journey" kanji="旅" title="Journey" symbols={["kings", "dazaifu", "umegae", "taipei", "hk", "xlb"]}>
+        <Section id="journey" kanji="旅" title="Journey" symbols={["kings", "dazaifu", "umegae", "taipei", "hk", "xlb", "hotpot", "camera"]}>
           <Journey />
         </Section>
         <Section id="music" kanji="音楽" title="Music" symbols={["rcm", "hall"]}>
           <Music />
         </Section>
-        <Section id="hobbies" kanji="趣味" title="Hobbies">
-          <Shelf keys={["badminton", "skate", "camera", "omega", "partyhat", "scimitar", "coins", "hotpot"]} />
-        </Section>
-        <Section id="stats" kanji="統計" title="Live stats" symbols={["icpcb", "icpc"]}>
+        <Section id="stats" kanji="統計" title="Live stats" symbols={["icpcb", "icpc", "badminton", "skate"]}>
           <StatsViz />
-        </Section>
-        <Section id="highlights" kanji="実績" title="Highlights" symbols={["omamori", "books"]}>
-          <Highlights />
         </Section>
       </main>
       <PapelPicado className="relative z-10 opacity-80" />

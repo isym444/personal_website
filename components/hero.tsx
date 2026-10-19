@@ -28,11 +28,11 @@ function Typed() {
     let i = 0
     let timer: ReturnType<typeof setTimeout>
     const step = () => {
-      i++
+      i = Math.min(full.length, i + 2)
       setText(full.slice(0, i))
-      if (i < full.length) timer = setTimeout(step, full[i] === "\n" ? 260 : 22 + Math.random() * 30)
+      if (i < full.length) timer = setTimeout(step, full[i - 1] === "\n" ? 90 : 10 + Math.random() * 12)
     }
-    timer = setTimeout(step, 1500)
+    timer = setTimeout(step, 300)
     return () => clearTimeout(timer)
   }, [])
   return (

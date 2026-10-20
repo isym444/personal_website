@@ -80,7 +80,7 @@ export const projects: Project[] = [
   {
     name: "AgenticMD",
     year: "2026",
-    text: "An AI medical scribe built at a hackathon: record a consultation, transcribe it and generate structured clinical notes. Angular front end, FastAPI backend, Supabase, speech-to-text and Gemini.",
+    text: "An AI medical scribe built at the HackEurope hackathon: record a consultation, transcribe it and generate structured clinical notes. Angular front end, FastAPI backend, Supabase, speech-to-text and Gemini.",
     stack: "Angular, FastAPI, Supabase, Gemini",
     links: [
       {
@@ -103,7 +103,7 @@ export const projects: Project[] = [
   {
     name: "Binary Lift VR",
     year: "2026",
-    text: "A Meta Quest game that teaches binary lifting: race an NPC to a tree's K-th ancestor by teleporting through power-of-two portals. The core logic is unit-tested outside Unity.",
+    text: "A Meta Quest game that teaches binary lifting.",
     stack: "Unity, C#, OpenXR, algorithms",
     links: [
       { label: "Source", href: "https://github.com/isym444/BinaryLiftVR" },
@@ -171,12 +171,19 @@ export const highlights: Highlight[] = [
     doc: { id: "nwerc", label: "See me at ICPC NWERC" },
   },
   { text: "AtCoder green: 28th in the UK, top 25% worldwide" },
-  { text: "Former president of the University of Glasgow competitive programming society, with a university volunteering award" },
+  {
+    text: "Former president of the University of Glasgow competitive programming society, with a university volunteering award",
+  },
   {
     text: "2 publications in international medical journals (Clinical Breast Cancer, Family Practice / Oxford University Press), 36 citations",
-    link: { label: "2 publications in international medical journals", href: "https://pubmed.ncbi.nlm.nih.gov/?term=Yep+Manzano" },
+    link: {
+      label: "2 publications in international medical journals",
+      href: "https://pubmed.ncbi.nlm.nih.gov/?term=Yep+Manzano",
+    },
   },
-  { text: "UK Biology Olympiad gold medal and University of Cambridge violin and piano scholarships" },
+  {
+    text: "UK Biology Olympiad gold medal and University of Cambridge violin and piano scholarships",
+  },
   {
     text: "JLPT N1 passed, plus a Tsuzuki Scholarship exchange year at the Japan University of Economics, Fukuoka",
     doc: { id: "jlpt-n1", label: "See my JLPT N1 results" },
@@ -237,7 +244,10 @@ export const repertoire: Repertoire[] = [
     instrument: "Piano",
     composer: "Rachmaninov",
     works: [
-      { id: "rachmaninov-concerto-2", title: "Piano Concerto No. 2 (1st movement)" },
+      {
+        id: "rachmaninov-concerto-2",
+        title: "Piano Concerto No. 2 (1st movement)",
+      },
       { id: "rachmaninov-prelude-23-5", title: "Prelude Op. 23 No. 5" },
     ],
     accent: "var(--gold)",
@@ -257,7 +267,9 @@ export const repertoire: Repertoire[] = [
   {
     instrument: "Violin",
     composer: "Wieniawski",
-    works: [{ id: "wieniawski-scherzo-tarantelle", title: "Scherzo-Tarantelle" }],
+    works: [
+      { id: "wieniawski-scherzo-tarantelle", title: "Scherzo-Tarantelle" },
+    ],
     accent: "var(--gold)",
   },
   {

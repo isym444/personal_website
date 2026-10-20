@@ -14,7 +14,7 @@ export const profile = {
 
 export const about = [
   "I'm a full-stack software engineer on the legal technology team at Barclays in Glasgow.",
-  "Before software I worked as a doctor in the NHS (St Thomas' and Guy's, London) after graduating in Medicine from the University of Cambridge.",
+  "Before software I worked as a doctor in the NHS (St Thomas' and Guy's, London) after [[graduating in Medicine from the University of Cambridge|cambridge-graduation]].",
   "I compete in algorithmic programming contests in my spare time.",
   "Born in Mexico, raised in the UK.",
 ];
@@ -157,13 +157,30 @@ export const moreProjects = [
   },
 ];
 
-export const highlights = [
-  "UKIEPC 1st place at Glasgow University (top 15% across the UK and Ireland), qualifying for ICPC NWERC",
-  "AtCoder green: 28th in the UK, top 25% worldwide",
-  "Former president of the University of Glasgow competitive programming society, with a university volunteering award",
-  "2 publications in international medical journals (Clinical Breast Cancer, Family Practice / Oxford University Press), 36 citations",
-  "UK Biology Olympiad gold medal and University of Cambridge violin and piano scholarships",
-  "JLPT N1 passed, plus a Tsuzuki Scholarship exchange year at the Japan University of Economics, Fukuoka",
+export type Highlight = {
+  text: string;
+  /** Turns the `label` part of `text` into a link. */
+  link?: { label: string; href: string };
+  /** Adds a button that opens this document (a key of `docs` in lib/docs.ts) in a popup. */
+  doc?: { id: string; label: string };
+};
+
+export const highlights: Highlight[] = [
+  {
+    text: "UKIEPC 1st place at Glasgow University (top 15% across the UK and Ireland), qualifying for ICPC NWERC",
+    doc: { id: "nwerc", label: "See me at ICPC NWERC" },
+  },
+  { text: "AtCoder green: 28th in the UK, top 25% worldwide" },
+  { text: "Former president of the University of Glasgow competitive programming society, with a university volunteering award" },
+  {
+    text: "2 publications in international medical journals (Clinical Breast Cancer, Family Practice / Oxford University Press), 36 citations",
+    link: { label: "2 publications in international medical journals", href: "https://pubmed.ncbi.nlm.nih.gov/?term=Yep+Manzano" },
+  },
+  { text: "UK Biology Olympiad gold medal and University of Cambridge violin and piano scholarships" },
+  {
+    text: "JLPT N1 passed, plus a Tsuzuki Scholarship exchange year at the Japan University of Economics, Fukuoka",
+    doc: { id: "jlpt-n1", label: "See my JLPT N1 results" },
+  },
 ];
 
 export const languages = [
@@ -181,10 +198,16 @@ export const musicCredentials = {
   venues: ["Royal Albert Hall", "Wigmore Hall"],
 };
 
+export type Work = {
+  /** Stable slug. A clip is shown for this piece once `npm run clip -- <id> <video>` has encoded one. */
+  id: string;
+  title: string;
+};
+
 export type Repertoire = {
   instrument: "Piano" | "Violin";
   composer: string;
-  works: string[];
+  works: Work[];
   accent: string;
 };
 
@@ -194,9 +217,9 @@ export const repertoire: Repertoire[] = [
     instrument: "Piano",
     composer: "Chopin",
     works: [
-      "Études (selection)",
-      "Piano Concerto No. 1 (1st movement)",
-      "Grande Polonaise Brillante",
+      { id: "chopin-etudes", title: "Études (selection)" },
+      { id: "chopin-concerto-1", title: "Piano Concerto No. 1 (1st movement)" },
+      { id: "chopin-polonaise", title: "Grande Polonaise Brillante" },
     ],
     accent: "var(--magenta)",
   },
@@ -204,46 +227,53 @@ export const repertoire: Repertoire[] = [
     instrument: "Piano",
     composer: "Liszt",
     works: [
-      "Mephisto Waltz No. 1",
-      "Petrarch Sonnets (selection)",
-      "Faust Waltz",
+      { id: "liszt-mephisto-waltz", title: "Mephisto Waltz No. 1" },
+      { id: "liszt-petrarch-sonnets", title: "Petrarch Sonnets (selection)" },
+      { id: "liszt-faust-waltz", title: "Faust Waltz" },
     ],
     accent: "var(--cyan)",
   },
   {
     instrument: "Piano",
     composer: "Rachmaninov",
-    works: ["Piano Concerto No. 2 (1st movement)", "Prelude Op. 23 No. 5"],
+    works: [
+      { id: "rachmaninov-concerto-2", title: "Piano Concerto No. 2 (1st movement)" },
+      { id: "rachmaninov-prelude-23-5", title: "Prelude Op. 23 No. 5" },
+    ],
     accent: "var(--gold)",
   },
   {
     instrument: "Piano",
     composer: "Schumann",
-    works: ["Abegg Variations"],
+    works: [{ id: "schumann-abegg", title: "Abegg Variations" }],
     accent: "var(--phosphor)",
   },
   {
     instrument: "Piano",
     composer: "Bach",
-    works: ["Partita No. 2"],
+    works: [{ id: "bach-partita-2", title: "Partita No. 2" }],
     accent: "var(--ink)",
   },
   {
     instrument: "Violin",
     composer: "Wieniawski",
-    works: ["Scherzo-Tarantelle"],
+    works: [{ id: "wieniawski-scherzo-tarantelle", title: "Scherzo-Tarantelle" }],
     accent: "var(--gold)",
   },
   {
     instrument: "Violin",
     composer: "Paganini / Kreisler",
-    works: ["La Campanella"],
+    works: [{ id: "paganini-la-campanella", title: "La Campanella" }],
     accent: "var(--magenta)",
   },
   {
     instrument: "Violin",
     composer: "Violin concertos",
-    works: ["Mendelssohn", "Bruch", "Saint-Saëns No. 3"],
+    works: [
+      { id: "mendelssohn-concerto", title: "Mendelssohn" },
+      { id: "bruch-concerto", title: "Bruch" },
+      { id: "saint-saens-concerto-3", title: "Saint-Saëns No. 3" },
+    ],
     accent: "var(--cyan)",
   },
 ];

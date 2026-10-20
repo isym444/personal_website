@@ -9,7 +9,7 @@ const ROWS: [string, string][] = [
   ["Past", "Doctor, NHS (St Thomas' & Guy's)"],
   [
     "Edu",
-    "BSc Software Eng, Glasgow | [[MB BChir, Cambridge|cambridge-graduation]]",
+    "BSc Software Eng, Glasgow | MB BChir, Cambridge",
   ],
   [
     "Stack",

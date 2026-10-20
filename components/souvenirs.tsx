@@ -1,10 +1,25 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { SYMBOLS, SymbolSvg, type SymbolKey } from "@/components/symbols"
+
+// undefined until mounted. Gutters and Belt are mutually exclusive by viewport, so mount only the one that shows instead of hiding the other with CSS (that left ~3x the SVGs in the DOM).
+function useWide(): boolean | undefined {
+  const [wide, setWide] = useState<boolean>()
+  useEffect(() => {
+    const mql = window.matchMedia("(min-width: 1400px)")
+    const update = () => setWide(mql.matches)
+    update()
+    mql.addEventListener("change", update)
+    return () => mql.removeEventListener("change", update)
+  }, [])
+  return wide
+}
 
 // Wide screens: symbols float down the empty margins either side of the content.
 export function Gutters({ keys }: { keys: SymbolKey[] }) {
+  const wide = useWide()
+  if (!wide) return null
   const left = keys.filter((_, i) => i % 2 === 0)
   const right = keys.filter((_, i) => i % 2 === 1)
   return (
@@ -48,7 +63,18 @@ function Column({ keys, side }: { keys: SymbolKey[]; side: "left" | "right" }) {
 
 // Narrower screens (and mobile): a slow conveyor of symbols under the section title. Tap one for its caption.
 export function Belt({ keys }: { keys: SymbolKey[] }) {
+  const wide = useWide()
   const [selected, setSelected] = useState<SymbolKey | null>(null)
+  if (wide) return null
+  if (wide === undefined) {
+    // Same height as the real belt so the page below does not jump when it mounts.
+    return (
+      <div className="mb-10 min-[1400px]:hidden" aria-hidden>
+        <div className="h-[90px] sm:h-[106px]" />
+        <p className="mt-2 min-h-5" />
+      </div>
+    )
+  }
   const reps = Math.max(1, Math.ceil(8 / keys.length))
   const half = Array.from({ length: reps }, () => keys).flat()
   return (

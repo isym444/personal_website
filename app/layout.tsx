@@ -2,8 +2,6 @@ import type { Metadata, Viewport } from "next"
 import { JetBrains_Mono } from "next/font/google"
 import "./globals.css"
 
-export const runtime = "edge"
-
 const code = JetBrains_Mono({ subsets: ["latin"], variable: "--font-code", display: "swap" })
 
 const title = "Ian Samir Yep Manzano | イアン | Software Engineer"

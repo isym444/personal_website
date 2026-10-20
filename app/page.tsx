@@ -9,8 +9,6 @@ import { Experience, Footer, Greetings, Highlights, Projects, Section } from "@/
 import { StatsViz } from "@/components/stats-viz"
 import { PapelPicado } from "@/components/symbols"
 
-export const runtime = "edge"
-
 export default function Home() {
   return (
     <>

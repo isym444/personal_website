@@ -7,8 +7,14 @@ const ROWS: [string, string][] = [
   ["OS", "Arch Linux (btw), Android, MacOS, iOS"],
   ["Role", "Software Engineer @ Barclays"],
   ["Past", "Doctor, NHS (St Thomas' & Guy's)"],
-  ["Edu", "BSc Software Eng, Glasgow | [[MB BChir, Cambridge|cambridge-graduation]]"],
-  ["Stack", "Angular, Spring Boot, Kafka, Kubernetes"],
+  [
+    "Edu",
+    "BSc Software Eng, Glasgow | [[MB BChir, Cambridge|cambridge-graduation]]",
+  ],
+  [
+    "Stack",
+    "Angular (TypeScript), Spring Boot (Java), C++, MSSQL, Kafka, Kubernetes",
+  ],
   ["Editor", "Neovim, VS Code"],
   ["Langs", "English, Español, 日本語, Français, Português, 中文"],
   ["Hobbies", hobbies],

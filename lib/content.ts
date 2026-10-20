@@ -14,7 +14,7 @@ export const profile = {
 
 export const about = [
   "I'm a full-stack software engineer on the legal technology team at Barclays in Glasgow.",
-  "Before software I worked as a doctor in the NHS (St Thomas' and Guy's, London) after [[graduating in Medicine from the University of Cambridge|cambridge-graduation]].",
+  "Before software I worked as a doctor in the NHS (St Thomas' and Guy's, London) after graduating in Medicine from the University of Cambridge.",
   "I compete in algorithmic programming contests in my spare time.",
   "Born in Mexico, raised in the UK.",
 ];

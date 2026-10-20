@@ -30,7 +30,7 @@ Clips cost nothing on page load: they are fetched on hover, focus or touch, then
 
 ## Document popups
 
-A highlight can open a document in the same terminal-style popup as the clips (JLPT N1 does). Define the document in `lib/docs.ts` and point a highlight at it with `doc: { id, label }` in `lib/content.ts`.
+A highlight can open a document in the same terminal-style popup as the clips (JLPT N1 does). Define the document in `lib/docs.ts` and point a highlight at it with `doc: { id, label }` in `lib/content.ts`. A Journey stop opens one the same way (`doc` on the stop in `components/journey.tsx`, which makes the whole card clickable), and text can embed a link with `[[visible text|doc-id]]`.
 
 Documents are shown as images, never the original PDF. Check them before they go in: printed web pages often carry a URL in the footer, and results-portal URLs can contain the login (the JLPT printout's does). Crop that out, hide ID numbers, and keep the original out of the repo. Strip photo metadata too (phone photos carry GPS): `magick in.jpg -auto-orient -strip -quality 85 public/docs/name.webp`.
 

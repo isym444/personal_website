@@ -1,6 +1,6 @@
 "use client"
 
-import type { ComponentType } from "react"
+import type { ComponentType, ReactNode } from "react"
 import { useRef, useState } from "react"
 import type { DocDialogProps } from "@/components/doc-dialog"
 import { docs } from "@/lib/docs"
@@ -24,9 +24,10 @@ const warm = (id: string) => {
 
 /**
  * Opens a document or photo (lib/docs.ts) in the popup. `inline` renders as underlined text for use inside a
- * sentence; the default is a full-width button for use under a block of text.
+ * sentence; `card` turns its children into a whole clickable card; the default is a full-width button for use
+ * under a block of text.
  */
-export function DocButton({ id, label, inline = false }: { id: string; label: string; inline?: boolean }) {
+export function DocButton({ id, label, inline = false, card = false, children }: { id: string; label: string; inline?: boolean; card?: boolean; children?: ReactNode }) {
   const [open, setOpen] = useState(false)
   const [Dialog, setDialog] = useState<ComponentType<DocDialogProps> | null>(null)
   const [failed, setFailed] = useState(false)
@@ -59,7 +60,16 @@ export function DocButton({ id, label, inline = false }: { id: string; label: st
 
   return (
     <>
-      {inline ? (
+      {card ? (
+        <button ref={button} type="button" className="window neon-box doc-card p-3" style={{ ["--accent" as string]: doc.accent }} onClick={show} {...interest}>
+          {children}
+          <span className="doc-card-foot">
+            <span className="clip-play" aria-hidden>{glyph}</span>
+            <span>{label}</span>
+            <span className="clip-tag" aria-hidden>VIEW</span>
+          </span>
+        </button>
+      ) : inline ? (
         <button ref={button} type="button" className="doc-inline" style={{ ["--accent" as string]: doc.accent }} onClick={show} {...interest}>
           {label}
           <span className="doc-inline-glyph" aria-hidden>{glyph}</span>

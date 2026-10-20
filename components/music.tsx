@@ -1,14 +1,37 @@
 "use client"
 
+import type { ComponentType } from "react"
 import { useState } from "react"
 import { Violin } from "@/components/art"
 import { PlayablePiano } from "@/components/piano"
 import { Reveal } from "@/components/reveal"
 import { SymbolSvg } from "@/components/symbols"
 import { playPluck, VIOLIN_STRINGS } from "@/lib/audio"
+import type { ClipDialogProps, PlayableClip } from "@/components/clip-dialog"
+import { playClip, prefetchClip, stopClip } from "@/lib/clip-cache"
+import { clipMeta } from "@/lib/clips"
+import { loadChunk } from "@/lib/load-chunk"
 import { musicCredentials, repertoire, type Repertoire } from "@/lib/content"
 
-function Programme({ instrument, glyph }: { instrument: Repertoire["instrument"]; glyph: string }) {
+// The popup (and Radix's dialog) only loads when a visitor shows interest in a piece, and is cached after the first
+// load. A failed load is not cached, so the next attempt retries.
+let dialog: Promise<ComponentType<ClipDialogProps>> | null = null
+const getDialog = () =>
+  (dialog ??= loadChunk(() => import("@/components/clip-dialog"))
+    .then((m) => m.default)
+    .catch((e) => {
+      dialog = null
+      throw e
+    }))
+
+// Every piece that has a clip, in on-page order (piano first), for the popup's prev/next.
+const playable: PlayableClip[] = (["Piano", "Violin"] as const).flatMap((instrument) =>
+  repertoire
+    .filter((r) => r.instrument === instrument)
+    .flatMap((r) => r.works.filter((w) => clipMeta(w.id)).map((w) => ({ id: w.id, instrument, composer: r.composer, title: w.title, accent: r.accent }))),
+)
+
+function Programme({ instrument, glyph, onOpen }: { instrument: Repertoire["instrument"]; glyph: string; onOpen: (id: string) => void }) {
   const rows = repertoire.filter((r) => r.instrument === instrument)
   return (
     <div>
@@ -21,9 +44,34 @@ function Programme({ instrument, glyph }: { instrument: Repertoire["instrument"]
             <p className="font-pixel text-lg" style={{ color: r.accent, textShadow: `0 0 10px ${r.accent}55` }}>
               {r.composer}
             </p>
-            <ul className="mt-1 space-y-0.5 border-l border-border pl-3 text-[13.5px] leading-snug text-ink/90">
+            <ul className="mt-1 space-y-1.5 border-l border-border pl-3 text-[13.5px] leading-snug text-ink/90" style={{ ["--accent" as string]: r.accent }}>
               {r.works.map((w) => (
-                <li key={w}>{w}</li>
+                <li key={w.id}>
+                  {clipMeta(w.id) ? (
+                    <button
+                      type="button"
+                      className="clip-link"
+                      data-clip={w.id}
+                      aria-label={`Watch a clip of ${r.composer}: ${w.title}`}
+                      onClick={() => onOpen(w.id)}
+                      onPointerEnter={() => {
+                        getDialog().catch(() => {})
+                        prefetchClip(w.id)
+                      }}
+                      onFocus={() => {
+                        getDialog().catch(() => {})
+                        prefetchClip(w.id)
+                      }}
+                      onTouchStart={() => prefetchClip(w.id)}
+                    >
+                      <span className="clip-play" aria-hidden>▶</span>
+                      <span>{w.title}</span>
+                      <span className="clip-tag" aria-hidden>WATCH</span>
+                    </button>
+                  ) : (
+                    w.title
+                  )}
+                </li>
               ))}
             </ul>
           </li>
@@ -35,6 +83,23 @@ function Programme({ instrument, glyph }: { instrument: Repertoire["instrument"]
 
 export function Music() {
   const [vibrating, setVibrating] = useState<number | null>(null)
+  const [clip, setClip] = useState<number | null>(null)
+  const [Dialog, setDialog] = useState<ComponentType<ClipDialogProps> | null>(null)
+  const [loadError, setLoadError] = useState(false)
+  const openClip = (id: string) => {
+    playClip(id) // started inside the click so the browser allows sound
+    setLoadError(false)
+    setClip(playable.findIndex((p) => p.id === id))
+    getDialog().then(
+      (C) => setDialog(() => C),
+      () => {
+        // The player code would not load (offline, or the tab is older than the latest deploy).
+        stopClip(id)
+        setClip(null)
+        setLoadError(true)
+      },
+    )
+  }
   const pluck = (i: number) => {
     playPluck(VIOLIN_STRINGS[i])
     setVibrating(i)
@@ -87,12 +152,24 @@ export function Music() {
           <div className="window-bar">
             <span>~/music/favourite-repertoire.pdf</span>
           </div>
+          {playable.length > 0 && (
+            <p className="px-5 pt-4 text-xs text-muted sm:px-6">
+              <span className="text-phosphor">&gt;</span> pieces marked <span className="text-gold">▶ WATCH</span> open a short clip of me playing them, with sound
+              <span className="blink text-phosphor">_</span>
+            </p>
+          )}
+          {loadError && (
+            <p role="status" className="px-5 pt-2 text-xs text-red sm:px-6">
+              Couldn&apos;t load the player. Check your connection and reload the page.
+            </p>
+          )}
           <div className="grid gap-8 p-5 sm:grid-cols-2 sm:p-6">
-            <Programme instrument="Piano" glyph="♪" />
-            <Programme instrument="Violin" glyph="♫" />
+            <Programme instrument="Piano" glyph="♪" onOpen={openClip} />
+            <Programme instrument="Violin" glyph="♫" onOpen={openClip} />
           </div>
         </Reveal>
       </div>
+      {Dialog && <Dialog clips={playable} index={clip} onChange={setClip} />}
     </div>
   )
 }

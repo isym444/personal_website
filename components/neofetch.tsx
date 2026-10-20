@@ -1,12 +1,13 @@
 import { Arch, Tux } from "@/components/art";
 import { Reveal } from "@/components/reveal";
+import { Rich } from "@/components/rich-text";
 import { about, hobbies } from "@/lib/content";
 
 const ROWS: [string, string][] = [
   ["OS", "Arch Linux (btw), Android, MacOS, iOS"],
   ["Role", "Software Engineer @ Barclays"],
   ["Past", "Doctor, NHS (St Thomas' & Guy's)"],
-  ["Edu", "BSc Software Eng, Glasgow | MB BChir, Cambridge"],
+  ["Edu", "BSc Software Eng, Glasgow | [[MB BChir, Cambridge|cambridge-graduation]]"],
   ["Stack", "Angular, Spring Boot, Kafka, Kubernetes"],
   ["Editor", "Neovim, VS Code"],
   ["Langs", "English, Español, 日本語, Français, Português, 中文"],
@@ -33,7 +34,7 @@ export function Neofetch() {
           <Reveal key={i} delay={i * 90}>
             <p>
               <span className="mr-2 text-phosphor">&gt;</span>
-              {p}
+              <Rich text={p} />
             </p>
           </Reveal>
         ))}
@@ -60,7 +61,7 @@ export function Neofetch() {
               <p key={k} className="break-words">
                 <span className="text-phosphor">{k}</span>
                 <span className="text-muted">: </span>
-                {v}
+                <Rich text={v} />
               </p>
             ))}
             <div className="mt-3 flex gap-1" aria-hidden>

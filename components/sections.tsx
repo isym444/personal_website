@@ -11,6 +11,7 @@ import {
   Wallet,
 } from "lucide-react";
 import { Arch, Lantern, Tux } from "@/components/art";
+import { DocButton } from "@/components/doc-button";
 import { Reveal } from "@/components/reveal";
 import { Belt, Gutters } from "@/components/souvenirs";
 import type { SymbolKey } from "@/components/symbols";
@@ -228,7 +229,7 @@ export function Highlights() {
     <div className="grid gap-4 md:grid-cols-2">
       {highlights.map((h, i) => (
         <Reveal
-          key={h.slice(0, 20)}
+          key={h.text.slice(0, 20)}
           delay={(i % 2) * 100 + Math.floor(i / 2) * 60}
           className="window neon-box flex gap-4 p-4"
         >
@@ -239,7 +240,20 @@ export function Highlights() {
             <p className="font-pixel text-xs text-gold">
               実績解除 // achievement unlocked
             </p>
-            <p className="mt-1 text-[13.5px] leading-snug text-ink/90">{h}</p>
+            <p className="mt-1 text-[13.5px] leading-snug text-ink/90">
+              {h.link && h.text.includes(h.link.label) ? (
+                <>
+                  {h.text.slice(0, h.text.indexOf(h.link.label))}
+                  <a className="link" href={h.link.href} target="_blank" rel="noopener noreferrer">
+                    {h.link.label}
+                  </a>
+                  {h.text.slice(h.text.indexOf(h.link.label) + h.link.label.length)}
+                </>
+              ) : (
+                h.text
+              )}
+            </p>
+            {h.doc && <DocButton id={h.doc.id} label={h.doc.label} />}
           </div>
         </Reveal>
       ))}

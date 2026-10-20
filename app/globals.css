@@ -86,6 +86,29 @@ html[data-festival="on"] {
     background: radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.65) 100%);
   }
 
+  /* Sections are tall and full of animated SVG: skip their style, layout and paint until they near the viewport.
+     The size hints are measured heights, so jumping to a #section lands on it instead of drifting past (re-measure if content changes a lot). */
+  main > section {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 1000px;
+  }
+  #about { contain-intrinsic-size: auto 1100px; }
+  #experience { contain-intrinsic-size: auto 810px; }
+  #highlights { contain-intrinsic-size: auto 830px; }
+  #projects { contain-intrinsic-size: auto 1570px; }
+  #journey { contain-intrinsic-size: auto 760px; }
+  #music { contain-intrinsic-size: auto 1390px; }
+  #stats { contain-intrinsic-size: auto 3450px; }
+  @media (max-width: 767px) {
+    #about { contain-intrinsic-size: auto 1620px; }
+    #experience { contain-intrinsic-size: auto 830px; }
+    #highlights { contain-intrinsic-size: auto 1210px; }
+    #projects { contain-intrinsic-size: auto 2750px; }
+    #journey { contain-intrinsic-size: auto 1030px; }
+    #music { contain-intrinsic-size: auto 2240px; }
+    #stats { contain-intrinsic-size: auto 3660px; }
+  }
+
   /* ---- Terminal window ---- */
   .window {
     border: 1px solid var(--border);
